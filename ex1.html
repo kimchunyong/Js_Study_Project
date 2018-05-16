@@ -12,49 +12,50 @@
     <script>
         /*
                             두 수를 입력받아 4칙연산의 결과를 표시해 봅시다.
+                            var input1 = prompt("숫자를 입력해 주세요");
+                            var n1 = Number(input1);
+                            var input2 = prompt("숫자를 입력해 주세요");
+                            var n2 = Number(input2);
+                            console.log(n1 + " + " + n2 + " = " + (n1 + n2));
+                            console.log(n1 + " * " + n2 + " = " + (n1 * n2));
+                            console.log(n1 + " - " + n2 + " = " + (n1 - n2));
+                            console.log(n1 + " / " + n2 + " = " + (n1 / n2));
                         */
-        /*
-        var input1 = prompt("숫자를 입력해 주세요");
-        var n1 = Number(input1);
-        var input2 = prompt("숫자를 입력해 주세요");
-        var n2 = Number(input2);
-        console.log(n1 + " + " + n2 + " = " + (n1 + n2));
-        console.log(n1 + " * " + n2 + " = " + (n1 * n2));
-        console.log(n1 + " - " + n2 + " = " + (n1 - n2));
-        console.log(n1 + " / " + n2 + " = " + (n1 / n2));
-        */
+
         /*
             BMI 계산기
             지정 미터 높이의 제곱 / 주어진 kg을 나누어 계산
             높이,몸무게를 구합니다.
-        */
+
         var peopleHeight = prompt("당신의 키는 몇cm 입니까?");
         var Heights = Number(peopleHeight) / 100;
 
         var peopleWeight = prompt("당신의 몸무게는 몇kg 입니까?");
         var Weights = Number(peopleWeight);
 
-        var BMI = Weights / ((Heights) * (Heights))
-
-        if (BMI < 18.5) {
-            console.log("체중")
-        }
-
-        if (18.5 <= BMI < 24.9) {
-            console.log("정상 체중")
-        }
-
-        if (25 < BMI < 29.9) {
-            console.log("초과 중량")
-        }
-
-        if (BMI > 29.9) {
-            console.log("비만")
-        }
+        var BMI = Weights / ((Heights) * (Heights));
+        console.log(BMI);
+        */
 
         /*
             화씨를 섭씨로 바꾸는 방법
             40을 더하고 1.8로 나누고 다시 40을 빼준다.
+
+        var tempt = prompt("온도를 적어주세요.");
+        var temptNum = function() {
+            return ((Number(tempt) + 40) / 1.8) - 40;
+        }
+        var result = temptNum(tempt);
+        console.log(result)
+         */
+
+        /*
+           입력한 문자열의 길이를 알려주는 프로그램을 작성해 봅시다.
+
+        var textInput = prompt("문자를 입력해주세요.");
+        var textLen = textInput.length;
+        console.log(textLen);
+
         */
     </script>
 </body>
