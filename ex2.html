@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+         *입력받은 숫자가 홀수인지 짝수인지를 알려주는 프로그램을 작성해 봅시다.
+         * 1.숫자를 입력받는다.
+         * 2.입력받은 숫자가 홀수인지 짝수인지 구분한다.
+         */
+        var InpNum = prompt('숫자를 입력해주세요.');
+        var num = Number(InpNum);
+        console.log(num);
+        if (num % 2 === 0) {
+            console.log('짝수')
+        } else if (num % 2 !== 0) {
+            console.log('홀수')
+        }
+    </script>
+</body>
+
+</html>
