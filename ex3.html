@@ -17,9 +17,7 @@
          */
         var inpNum = prompt("숫자를 입력해주세요.");
         var Num = Number(inpNum);
-        if (Num === 2) {
-            document.write(Num + "은 소수입니다");
-        } else if (Num !== 1 && Num !== 0 && Num % 2 !== 0) {
+        if (Num !== 1 && Num !== 0 && Num % 2 !== 0 || Num === 2) {
             document.write(Num + "은 소수입니다");
         }
     </script>
