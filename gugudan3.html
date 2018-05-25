@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>구구단을 출력해주세요.</h1>
+    <input type="button" value="btn" class="gugudan_btn">
+    <div class="gugudan_txt"></div>
+    <script>
+        /*
+            4단과 5단을 계산한 결과 값을 변수에
+        */
+        var btn = document.getElementsByClassName('gugudan_btn')[0];
+        var gugudan_txt = document.getElementsByClassName('gugudan_txt')[0]
+        btn.addEventListener("click", function(){
+            var dan = prompt("4단,5단 중 값을 입력해주세요.");
+            var Num = Number(dan);
+            if(Num === 4 || Num === 5) {
+                for(var i = 1; i <= 9; i++) {
+                    console.log(Num + "x" + i + "=" +(Num * i));
+                    gugudan_txt.innerHTML += + Num + "x" + i + "=" +(Num * i) + "<br/>"
+                }
+            }else{
+                alert("다시 입력해주세요.");
+                
+            }
+        });
+        /*var dan = prompt("4단,5단 중 값을 입력해주세요.");
+        var Num = Number(dan);
+        if(Num === 4 || Num === 5) {
+            for(var i = 1; i <= 9; i++) {
+                console.log(Num + "x" + i + "=" +(Num * i));
+                document.write(Num + "x" + i + "=" +(Num * i) + "<br/>")
+            }
+        }else{
+            alert("다시 입력해주세요.");
+        }*/
+        
+    </script>
+</body>
+</html>
+
