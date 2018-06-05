@@ -46,19 +46,27 @@
         console.log(result);
         */
 
-        var repeat2 = function(text, num) {
-            var repTxt = "";
-            if(num < 0 || num !== typeof Number) {
-                throw new Error("RangeError");
-            }
-            num = Math.floor(num);
-            for(var i = num; i >= 0; i--) {
-                repTxt += text;
-            }
-            return repTxt;
+    var repeat2 = function(text, num) {
+        var repTxt = "";
+        if(num === 0) {
+            return "";
+        }else if(num < 0 || typeof num !== 'number' || !isFinite(num)) {
+            throw new Error("RangeError");
         }
-        var result2 = repeat2("hello", 3.5);
-        console.log(result2); //"hellohellohellohellohellohello"
+        num = Math.floor(num);
+        for(var i = num; i >= 0; i--) {
+            repTxt += text;
+        }
+        return repTxt;
+    }
+    var result2 = repeat2("hello", -1);
+    var result3 = repeat2("hello", 0);
+    var result4 = repeat2("hello", 3.5);
+    var result5 = repeat2("hello", 2/1);
+    console.log(result2);
+    console.log(result3);
+    console.log(result4);
+    console.log(result5);
 
         
     </script>
