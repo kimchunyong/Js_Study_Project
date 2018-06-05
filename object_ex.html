@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .prime{width:100%;margin: 0;padding: 0;}
+        .prime li{display:inline-block;width:33%;text-align: center;border:1px solid #ff9800;box-sizing:border-box;}
+        .prime li:hover{background: #ff9800;color:#fff;}
+    </style>
+</head>
+<body>
+    <h1>소수만출력하기</h1>
+    <ul class="prime"></ul>
+    <script>
+        /*
+         *소수 출력하기
+         *1 – 10000 사이의 소수를 화면에 출력하는 프로그램을 작성해 봅시다.
+
+         *HTML + JS로 작성할 것
+         *객체와 메소드를 사용해 볼 것
+         *최대한 예쁘게 만들어 볼 것
+        */
+        numbers = {};
+        numbers.all = [];
+        numbers.prime = [];
+        numbers.isPrime = function(number){
+            //소수인지 아닌지 판별
+            for(var i = 0; i <= number; i++){
+                if(this.all[i] === 2 || this.all[i] % 2 !== 0) {
+                    this.prime.push(this.all[i]);
+                }
+            }
+            
+            this.getAllPrimes();
+        };
+        numbers.getAllPrimes = function(){
+            //소수만 추가
+            return this.prime.join(" ");
+        };
+        numbers.addAll = function(max_num){
+            //숫자를 max_num 까지 배열에 넣는다.
+            for(var i = 2; i <= max_num; i++) {
+                this.all.push(i);
+            }
+            this.isPrime(this.all.length-1);
+        };
+
+        numbers.addAll(1000);
+        var prmTxt = numbers.prime;
+        var prmEl = document.getElementsByClassName("prime")[0];
+        for(var i = 0; i <= prmTxt.length-1; i++) {
+            prmEl.innerHTML += "<li>" + prmTxt[i] + "</li>" ;
+        }
+    </script>
+</body>
+</html>
