@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+         *현실의 물체에 대응되는 개념
+         *객체를 사용하면 변수와 함수를 묶어서 관리하게된다.
+         *객체는 속성과 메서드를 가진다.
+        */
+
+        //객체 만들기
+        p1 = {};
+        console.log(typeof p1) //object
+
+        p1.name = "crong";
+        console.log(p1);
+        console.log(p1.name);
+        p1.name = "honux";
+        console.log(p1.name);
+
+        p1.eat = function(food) {
+            console.log(food + "를 먹습니다.");
+        }
+        
+        p1.eat('chicken');
+        p1.eat('바나나');
+    </script>
+</body>
+</html>
