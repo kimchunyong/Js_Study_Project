@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var p2 = {};
+        p2.name = "crong";
+        p2.weight = 100;
+        p2.eat = function(food) {
+            console.log(this.name + " 이 " + food + "를 먹었습니다.");
+            p2.weight += 1;
+        }
+        p2.eat('치킨');
+        p2.eat('과자');
+
+        //객체
+        var m1 = {"name":"honux","hp":100,"power":20,"attack":function(target) {
+            target.hp -= this.power;
+        }}
+        m1.attack(m1);
+    </script>
+</body>
+</html>
