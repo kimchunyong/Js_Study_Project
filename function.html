@@ -46,18 +46,18 @@
         console.log(result);
         */
 
-    var repeat2 = function(text, num) {
+    var repeat2 = function(text, num) { //text =>문자열을 입력받음, num => 반복할 횟수를 입력받습니다.
         var repTxt = "";
-        if(num === 0) {
+        if(num === 0) { //num 이 0일땐 빈문자열을 반환합니다.
             return "";
-        }else if(num < 0 || typeof num !== 'number' || !isFinite(num)) {
+        }else if(num < 0 || typeof num !== 'number' || !isFinite(num)) { //num이 0보다 커야하고 타입은 number타입만 받고 !isFinite(num)을 이용해서 무한대일때 throw new Error() 에러객체를 만들어 던집니다.
             throw new Error("RangeError");
         }
-        num = Math.floor(num);
-        for(var i = num; i >= 0; i--) {
-            repTxt += text;
+        num = Math.floor(num); //소수점을 입력받았을시 내림을해서 반복되게합니다.
+        for(var i = num; i >= 0; i--) { //num = 5 부터 0까지 총 5번
+            repTxt += text; //text가 5번 돌면서 repTxt에 들어갑니다.
         }
-        return repTxt;
+        return repTxt; //마지막으로 repTxt값을 리턴시켜 함수밖으로 내보냅니다.
     }
     var result2 = repeat2("hello", -1);
     var result3 = repeat2("hello", 0);
