@@ -33,27 +33,28 @@
                     this.prime.push(this.all[i]);
                 }
             }
-            
-            this.getAllPrimes();
         };
         numbers.getAllPrimes = function(){
             //소수만 추가
-            return this.prime.join(" ");
+            var txtAll = "";
+            for(var i = 0; i <= this.prime.length-1; i++) {
+                txtAll += "<li>" + this.prime[i] + "</li>" ;
+            }
+            return txtAll;
+  
         };
         numbers.addAll = function(max_num){
             //숫자를 max_num 까지 배열에 넣는다.
             for(var i = 2; i <= max_num; i++) {
                 this.all.push(i);
             }
-            this.isPrime(this.all.length-1);
         };
 
         numbers.addAll(1000);
-        var prmTxt = numbers.prime;
-        var prmEl = document.getElementsByClassName("prime")[0];
-        for(var i = 0; i <= prmTxt.length-1; i++) {
-            prmEl.innerHTML += "<li>" + prmTxt[i] + "</li>" ;
-        }
+        numbers.isPrime(numbers.all.length-1);
+        console.log(numbers.prime);
+        document.getElementsByClassName("prime")[0].innerHTML = numbers.getAllPrimes();
+        
     </script>
 </body>
 </html>
