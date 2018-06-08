@@ -20,7 +20,18 @@
          * github 저장소
         */
         
-        
+        var results = [];
+        var length = 9;
+        var gugudan2 = document.getElementsByClassName("gugudan2")[0];
+        console.log(gugudan2)
+        for(var i = 1; i <= length; i++) {
+            results.push(i);
+        }
+
+        for(var i = 1; i <= length; i++) {
+            console.log(results[1]);
+            gugudan2.innerHTML += results[1] + "*" + i + "=" + (results[1] * i) + "<br>";
+        }
     </script>
 </body>
 </html>
