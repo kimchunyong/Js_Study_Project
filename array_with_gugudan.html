@@ -28,6 +28,8 @@
         }
 
         for(var i = 0; i < results.length-1; i++) {
+            gugudan2.innerHTML += "<h1>" + results[i+1] + "단 </h1>";
+            
             for(var j = 0; j < results.length; j++){
                 gugudan2.innerHTML += results[i+1] + "X" + results[j] + "=" + (results[i+1] * results[j]) + "<br>";
             }
