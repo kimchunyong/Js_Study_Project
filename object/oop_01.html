@@ -22,7 +22,7 @@
             this.gender = gender;
         }
 
-        Person.prototype.sayHello = function() {
+        Person.prototype.sayHello = function() { //공통 부분을 프로토타입에 저장해서 체인을이용해서 한번만 생성되게끔 사용.
             document.write(this.name + ' said "hello" <br/>');
         }
 
