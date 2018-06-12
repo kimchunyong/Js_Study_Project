@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+         *연속되는 숫자까지를 배열로 연속되는 문자열까지 배열로
+         *ex)["123","a","456","b"];
+        */
+        var txt = "123A45226b222sssdd";
+        
+        function txtDivide(txt) {
+            var results = txt.match(/([0-9])+|([a-z])+/gi);
+
+            return results;
+        }
+        var result = txtDivide(txt);
+
+        document.write(result);
+    </script>
+</body>
+</html>
