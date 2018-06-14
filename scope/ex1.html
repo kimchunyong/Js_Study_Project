@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var name = "global var";
+        function home() {
+            var homevar = "homevar";
+            for(/*var*/let i = 0; i < 100; i++) { //let으로 인해 오류를 내뱉는다, var =>100
+
+            }
+        }
+        home(); // 100
+
+        if(true) {
+            let myif = "myif";
+        }
+        console.log(myif);
+    </script>
+</body>
+</html>
