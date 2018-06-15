@@ -17,7 +17,7 @@
         function calculrate(num) {
             var results = [];
             for(var i = 1; i <= 9; i++) {
-                results.push (num + "x" + i + "=" + (num * i));
+            results.push (num + "x" + i + "=" + (num * i));
             }
             print(results);
         }
@@ -26,8 +26,9 @@
             // 계산 결과를 화면에 출력
             var gugudans = document.getElementsByClassName("gugudan")[0];
             for(var j = 1; j < results.length; j++) {
-                document.write(results[j] + "<br/>");
-            }
+                gugudans.innerHTML += '<p>' + results[j] +  '</p>';
+            
+        }
         }
         function main() {
             // 나머지 코드들은 여기에 
