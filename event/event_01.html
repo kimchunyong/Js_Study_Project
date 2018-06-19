@@ -10,10 +10,28 @@
         p {
             width: 100px;
             height: 20px;
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
         }
 
         p:nth-child(odd) {
             background-color: red;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .fadeIn {
+            -webkit-animation-name: fadeIn;
+            animation-name: fadeIn;
         }
     </style>
 </head>
@@ -30,7 +48,7 @@
         function addItem(event) {
             event.preventDefault();
             if (add.childNodes.length < 10) {
-                add.innerHTML += "<p>" + 1 + "</p>";
+                add.innerHTML += "<p class='fadeIn'>" + (add.childNodes.length + 1) + "</p>";
             }
         }
     </script>
