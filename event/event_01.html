@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p {
+            width: 100px;
+            height: 20px;
+        }
+
+        p:nth-child(odd) {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button>add one item</button>
+    <div class="add"></div>
+    <script>
+        var button = document.querySelector('button');
+        var add = document.querySelector('.add');
+
+        button.addEventListener('click', addItem);
+
+        function addItem(event) {
+            event.preventDefault();
+            if (add.childNodes.length < 10) {
+                add.innerHTML += "<p>" + 1 + "</p>";
+            }
+        }
+    </script>
+</body>
+
+</html>
