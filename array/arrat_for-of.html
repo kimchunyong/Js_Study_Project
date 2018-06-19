@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var data = [1, 2, undefined, NaN, null, ""];
+        /*
+        for(var i = 0; i < data.length;i++) {
+        console.log(i);
+        }
+        */
+
+        data.forEach((value) => {
+            console.log(value)
+        })
+
+        Array.prototype.getIndex = function () { };
+        for (let value of data) { //배열에 for in을 쓰면 안되는 이유 객체 프로토타입에 추가된 객체값까지 추가됨.
+            console.log(value);
+        }
+
+        var str = "hello world!!!";
+        for (let value of str) {
+            console.log(value);
+        }
+    </script>
+</body>
+
+</html>
