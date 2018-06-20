@@ -1,3 +1,3 @@
 ul{list-style:none;width:500pxmargin:0;padding:0;}
 ul li{border:1px solid #ccc;background:#fff;margin-bottom:4px;padding:5px 10px;color:#333}
-.checked{text-decoration: line-through;color:#c00;font-weight: bold;}
+.checked{text-decoration: line-through;color:#fd4323;font-weight: bold;}

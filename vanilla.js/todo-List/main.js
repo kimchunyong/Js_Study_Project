@@ -1,10 +1,23 @@
 "use strict";
 var btnNew = document.getElementById("btnAdd");
 var inputText = document.getElementById("inputText");
-var totalItems = 0;
+
+function renameItem() {
+  console.log(this);
+  var newText = prompt("수정할 문구를 입력해 주세요.");
+  if (!newText || newText === "" || newText === " ") {
+    throw new Error("아무것도 입력되지 않았습니다.");
+  }
+
+  this.innerText = newText;
+}
+
+function removeItem() {
+  var listItemId = this.id.replace("li", "");
+  document.getElementById("li_" + listItemId).style.display = "none";
+}
 
 function updateItemStatus() {
-  console.log(1111);
   var chId = this.id.replace("cb_", "");
   var itemText = document.getElementById("item_" + chId);
 
@@ -36,18 +49,25 @@ inputText.addEventListener("keydown", function(event) {
 });
 
 function addNewItem(list, itemText) {
-  totalItems++;
+  var date = new Date();
+  var id =
+    "" +
+    date.getHours() +
+    date.getMinutes() +
+    date.getSeconds() +
+    date.getMilliseconds();
 
   var listItem = document.createElement("li");
   var chkBox = document.createElement("input");
 
   chkBox.type = "checkbox";
-  chkBox.id = "cb_" + totalItems;
+  chkBox.id = "cb_" + id;
   chkBox.onclick = updateItemStatus;
 
   var span = document.createElement("span");
-  span.id = "item_" + totalItems;
+  span.id = "item_" + id;
   span.innerText = itemText;
+  span.onclick = renameItem;
 
   listItem.appendChild(chkBox);
   listItem.appendChild(span);
