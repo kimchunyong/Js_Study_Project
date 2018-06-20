@@ -72,8 +72,9 @@ function addNewItem(list, itemText) {
   span.onclick = renameItem;
 
   var delBtn = document.createElement("button");
-  delBtn.innerText = "delete";
+  delBtn.innerText = "삭제하기";
   delBtn.className = "del_btns btns_off";
+
   listItem.addEventListener("mouseenter", function() {
     delBtn.style.display = "block";
   });
