@@ -1,6 +1,19 @@
 "use strict";
 var btnNew = document.getElementById("btnAdd");
 var inputText = document.getElementById("inputText");
+var totalItems = 0;
+
+function updateItemStatus() {
+  console.log(1111);
+  var chId = this.id.replace("cb_", "");
+  var itemText = document.getElementById("item_" + chId);
+
+  if (this.checked) {
+    itemText.className = "checked";
+  } else {
+    itemText.className = "";
+  }
+}
 
 //DOM이 다 그려지고 나서 코드가 실행되라
 document.addEventListener("DOMContentLoaded", function() {
@@ -23,7 +36,20 @@ inputText.addEventListener("keydown", function(event) {
 });
 
 function addNewItem(list, itemText) {
+  totalItems++;
+
   var listItem = document.createElement("li");
-  listItem.innerText = itemText;
+  var chkBox = document.createElement("input");
+
+  chkBox.type = "checkbox";
+  chkBox.id = "cb_" + totalItems;
+  chkBox.onclick = updateItemStatus;
+
+  var span = document.createElement("span");
+  span.id = "item_" + totalItems;
+  span.innerText = itemText;
+
+  listItem.appendChild(chkBox);
+  listItem.appendChild(span);
   list.appendChild(listItem);
 }
