@@ -3,7 +3,6 @@ var btnNew = document.getElementById("btnAdd");
 var inputText = document.getElementById("inputText");
 
 function renameItem() {
-  console.log(this);
   var newText = prompt("수정할 문구를 입력해 주세요.");
   if (!newText || newText === "" || newText === " ") {
     throw new Error("아무것도 입력되지 않았습니다.");
@@ -34,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 inputText.addEventListener("keydown", function(event) {
-  console.log(event.which);
   if (event.which === 13) {
     var itemText = inputText.value;
 
@@ -47,6 +45,10 @@ inputText.addEventListener("keydown", function(event) {
     inputText.select();
   }
 });
+
+function delLists() {
+  this.parentNode.remove();
+}
 
 function addNewItem(list, itemText) {
   var date = new Date();
@@ -69,7 +71,19 @@ function addNewItem(list, itemText) {
   span.innerText = itemText;
   span.onclick = renameItem;
 
+  var delBtn = document.createElement("button");
+  delBtn.innerText = "delete";
+  delBtn.className = "del_btns btns_off";
+  listItem.addEventListener("mouseenter", function() {
+    delBtn.style.display = "block";
+  });
+  listItem.addEventListener("mouseleave", function() {
+    delBtn.style.display = "none";
+  });
+  delBtn.onclick = delLists;
+
   listItem.appendChild(chkBox);
   listItem.appendChild(span);
+  listItem.appendChild(delBtn);
   list.appendChild(listItem);
 }
