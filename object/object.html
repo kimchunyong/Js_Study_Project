@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            a: 10,
+            b: 20
+        };
+
+        function copyObj(obj) {
+            var copy = {};
+            if (typeof obj === 'object' && obj !== null) {
+                for (var attr in obj) {
+                    if (obj.hasOwnProperty(attr)) {
+                        copy[attr] = copyObj(obj[attr]);
+                    }
+                }
+            } else {
+                copy = obj;
+            }
+            return copy;
+        }
+
+        var obj2 = copyObj(obj);
+        console.log(obj2)
+
+        /*
+         *var arr = [1,2,3];
+         *var newArr = [...arr]
+         *console.log(newArr);
+         *var newArr2 = [].concat(arr);
+         *console.log(newArr2);
+        */
+    </script>
+</body>
+
+</html>
