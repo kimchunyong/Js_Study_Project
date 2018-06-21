@@ -48,7 +48,40 @@
             users_age.push(temp_users2[j].age)
         }
 
+        // 2. _filter, _map 으로 리팩토링
 
+        function _filter(users, predi) {
+            var new_list = [];
+            for (var i = 0; i < users.length; i++) {
+                if (predi(users[i])) {
+                    new_list.push(users[i]);
+                }
+            }
+            return new_list;
+        }
+        console.log(_filter(users, function (user) { return user.age >= 30; }));
+        console.log(_filter(users, function (user) { return user.age < 30; }));
+
+        //3. _map
+
+        function _map(list, mapper) {
+            var new_list = [];
+            for (var j = 0; j < list.length; j++) {
+                console.log(list[j])
+                new_list.push(mapper(list[j]));
+            }
+            return new_list;
+        }
+
+        var over_30 = _filter(users, function (user) { return user.age < 30; });
+        console.log(over_30);
+        var names = _map(over_30, function (user) { return user.name });
+        console.log(names);
+
+        var under_30 = _filter(users, function (user) { return user.age >= 30; });
+
+        var ages = _map(under_30, function (user) { return user.age });
+        console.log(ages);
     </script>
 </body>
 
