@@ -15,13 +15,16 @@
 </head>
 
 <body>
-    <h1>애국가</h1>
+    <h1>
+        <img id="logo" src="http://tryhelloworld.co.kr/assets/course/img_1_javascript@2x-22318ebcb8ac4badd2e92a4502351bb93f4482a6aa3a68a5203adfd79a22a212.png"
+            alt="" srcset="">
+    </h1>
 
     <p id="songwriter">작곡 : 안익태</p>
     <p id="lyricist" style="color:red;">작사: 미상</p>
 
     <h2>1절</h2>
-    <p class="lyric">
+    <p class="lyric" src="test">
         동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세.
         <br> 무궁화 삼천리 화려강산대한 사람, 대한으로 길이 보전하세.
     </p>
@@ -32,6 +35,7 @@
         <br> 무궁화 삼천리 화려강산대한 사람, 대한으로 길이 보전하세.
     </p>
     <script>
+        /*
         document.children[0];
         document.children[0].children[0];
         document.children[0].children[0].children[0];
@@ -42,6 +46,24 @@
         link = head.children[1];
         link.nextElementSibling;
         link.previousElementSibling;
+        */
+        var t = document.getElementById("lyricist");
+        var t2 = document.getElementById("logo");
+        var t3 = document.getElementsByTagName("h2");
+        console.log(t3.length)
+        t.innerHTML; //tag
+        t.innerText; //text값
+        t.innerHTML = "<i>hello</i>";
+        t.style.color = 'blue';
+        t.style.fontSize = '15px'
+        t.getAttribute("src");
+        t2.setAttribute("src", "http://gdimg.gmarket.co.kr/771721832/still/600?ver=1507731350");
+        t2.style.width = "100px";
+
+        for (var i = 0; i < t3.length; i++) {
+            t3[i].style.color = "green";
+        }
+
     </script>
 </body>
 
