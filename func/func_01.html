@@ -21,12 +21,17 @@
             for (var i = 1; i <= 9; i++) {
                 results.push(num + "x" + i + "=" + (num * i));
             }
-            print(results);
+            print(num, results);
         }
 
-        function print(results) {
+        function print(dan, results) {
             // 계산 결과를 화면에 출력
             var gugudans = document.getElementsByClassName("gugudan")[0];
+            var h2 = document.createElement("h2");
+
+            h2.innerText = dan + '단'
+            gugudans.appendChild(h2);
+
             for (var j = 1; j < results.length; j++) {
                 gugudans.innerHTML += '<p>' + results[j] + '</p>';
             }
