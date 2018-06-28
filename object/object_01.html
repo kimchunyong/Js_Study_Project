@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function feedCat() {
+            alert("Kibble, tinned food and water");
+        }
+
+
+        //console.log(feedCat instanceof Object);
+
+        feedCat.food = "kibble";
+        //console.log(feedCat.food);
+        //console.log(feedCat.constructor);
+        var eveningChore = feedCat; //변수에 담을수도 있다.
+        eveningChore();
+
+        function doEveningChores(chores) {
+
+            for (var x = 0; x < chores.length; x++) {
+                chores[x]()
+            }
+        }
+        doEveningChores([feedCat]);
+
+        function tonightChores() {
+            return feedCat;
+        }
+        var tonight = tonightChores();
+        tonight();
+    </script>
+</body>
+
+</html>
