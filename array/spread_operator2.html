@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let pre = [100, 200, "hello", null];
+
+        let newData = [0, 1, 2, 3, ...pre, 4];
+        console.log(newData);
+
+        let pre1 = [100, 200, 300];
+
+        function sum(a, b, c) {
+            return a + b + c;
+        }
+
+        console.log(sum.apply(null, pre1));
+        console.log(sum(...pre1));
+
+    </script>
+</body>
+
+</html>
