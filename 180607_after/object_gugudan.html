@@ -17,10 +17,27 @@
         */
 
         gugudan = {};
-        gugudan.calculate = function () {
-
+        gugudan.result = [];
+        gugudan.current = -1;
+        gugudan.calculate = function (n) {
+            this.current = n;
+            for (var i = 0; i < 9; i++) {
+                this.result[i] = n * (i + 1);
+            }
         }
-        function main();
+        gugudan.print = function () {
+            document.write("<h2>" + this.current + "단</h2>");
+            for (var i = 0; i < 9; i++) {
+                document.write(this.current + " * " + (i + 1) + " = " + this.result[i] + "<br>");
+            }
+        }
+        function main() {
+            for (var i = 2; i <= 9; i++) {
+                gugudan.calculate(i);
+                gugudan.print();
+            }
+        }
+        main()
     </script>
 </body>
 

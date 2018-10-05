@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var userInput = prompt("구구단을 입력해주세요.");
+        var array = userInput.split(",");
+        for (var i = 0; i < array.length; i++) {
+            array[i] = Number(array[i]);
+        }
+        var gugudan = function () {
+            var dan = array[0];
+            for (var i = array[0]; i <= array[1]; i++) {
+                document.write("<h2>" + dan + "단</h2>");
+                dan++;
+                for (var j = 1; j <= array[1]; j++) {
+                    document.write(i + "*" + j + "=" + (i * j) + "<br/>");
+                }
+
+            }
+        }
+        gugudan();
+    </script>
+</body>
+
+</html>
