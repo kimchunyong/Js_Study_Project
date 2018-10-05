@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>객체2</title>
+</head>
+
+<body>
+    <script>
+        var Human = function (name, hp, pow) {
+            this.name = name;
+            this.hp = hp;
+            this.pow = pow;
+            this.attack = function (target) {
+                console.log(this.name + "이" + target.name + "을 공격했다.")
+                target.hp -= this.pow;
+            };
+            this.show = function () {
+                console.log("[%s] %d", this.name, this.hp);
+            };
+        }
+
+        var p1 = new Human('honux', 100, 10);
+        var p2 = new Human('crong', 159, 1);
+
+
+        var Food = function (name, energy) {
+            this.name = name;
+            this.energy = energy;
+            this.feed = function (human) {
+                human.hp += this.energy;
+            }
+        }
+    </script>
+</body>
+
+</html>
