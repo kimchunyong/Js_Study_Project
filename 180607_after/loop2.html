@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="name"></div>
+    <script>
+        /*
+        for (var word = "김밥"; true;) {
+            var answer = prompt(word);
+            
+            if (word[word.length - 1] === answer[0]) {
+                alert('딩동댕');
+                word = answer;
+            } else {
+                alert('틀렸어요.');
+            }
+        }
+        */
+        var star = "*";
+        for (var i = 1; i <= 5; i++) {
+            for (var j = i; j <= i; j++) {
+                document.getElementById("name").innerHTML += "*" + "<br/>"
+            }
+        }
+    </script>
+</body>
+
+</html>
