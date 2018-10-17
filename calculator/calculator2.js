@@ -43,5 +43,9 @@ function main() {
             count++;
         }
     }
-    out.innerHTML += total;
+    if (num.length === op.length) {
+        out.innerHTML += total;
+    } else {
+        out.innerHTML += "";
+    }
 }
