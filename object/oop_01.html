@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>생성자와 프로토타입</title>
 </head>
+
 <body>
     <script>
         /*
@@ -22,7 +24,7 @@
             this.gender = gender;
         }
 
-        Person.prototype.sayHello = function() { //공통 부분을 프로토타입에 저장해서 체인을이용해서 한번만 생성되게끔 사용.
+        Person.prototype.sayHello = function () { //공통 부분을 프로토타입에 저장해서 체인을이용해서 한번만 생성되게끔 사용.
             document.write(this.name + ' said "hello" <br/>');
         }
 
@@ -32,4 +34,5 @@
         hero.sayHello();
     </script>
 </body>
+
 </html>
