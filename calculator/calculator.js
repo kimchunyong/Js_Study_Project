@@ -3,7 +3,6 @@
 function main(inp1, inp2) {
     var out = document.getElementById('output');
     out.innerHTML = "계산기 구현하기" + "<br/>";
-
     out.innerHTML += "더하기: " + (inp1 + inp2) + "<br/>";
     out.innerHTML += "빼기: " + (inp1 - inp2) + "<br/>";
     out.innerHTML += "곱하기: " + (inp1 * inp2) + "<br/>";
