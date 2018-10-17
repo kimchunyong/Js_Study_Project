@@ -1,13 +1,21 @@
 "use strict";
 
-function main() {
-    console.log("계산기 구현하기");
+function main(inp1, inp2) {
     var out = document.getElementById('output');
-    out.innerHTML = "계산기 구현하기";
+    out.innerHTML = "계산기 구현하기" + "<br/>";
 
-    console.log(10 + 3);
-    console.log(10 * 3);
-    console.log(10 / 3);
-    console.log(10 - 3);
+    out.innerHTML += "더하기: " + (inp1 + inp2) + "<br/>";
+    out.innerHTML += "빼기: " + (inp1 - inp2) + "<br/>";
+    out.innerHTML += "곱하기: " + (inp1 * inp2) + "<br/>";
+    out.innerHTML += "나누기: " + (inp1 / inp2) + "<br/>";
+
 }
-main();
+
+function calc() {
+    var inp1 = document.getElementById('userInp1');
+    var inp2 = document.getElementById('userInp2');
+    inp1 = Number(inp1.value);
+    inp2 = Number(inp2.value);
+
+    main(inp1, inp2);
+}
