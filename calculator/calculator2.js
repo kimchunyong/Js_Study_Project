@@ -26,17 +26,22 @@ function main() {
     }
 
     while (count <= num.length) {
-        inp2 = num[count];
-        if (op[count] === "+") {
-            total = total + Number(inp2);
-        } else if (op[count] === "-") {
-            total = total - Number(inp2);
-        } else if (op[count] === "*") {
-            total = total * Number(inp2);
-        } else if (op[count] === "/") {
-            total = total / Number(inp2);
+        if (num.length !== op.length) {
+            alert("연산할수 없습니다.");
+            break;
+        } else {
+            inp2 = num[count];
+            if (op[count] === "+") {
+                total = total + Number(inp2);
+            } else if (op[count] === "-") {
+                total = total - Number(inp2);
+            } else if (op[count] === "*") {
+                total = total * Number(inp2);
+            } else if (op[count] === "/") {
+                total = total / Number(inp2);
+            }
+            count++;
         }
-        count++;
     }
     out.innerHTML += total;
 }
