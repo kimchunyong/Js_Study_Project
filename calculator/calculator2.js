@@ -2,17 +2,15 @@
 
 function main() {
     var out = document.getElementById('output');
-    out.innerHTML = "계산된 값 출력:" + "<br/>";
-
     var inp = document.getElementById("optTxt").value;
-
-    console.log(inp)
     var op = [];
     var num = [];
     var count = 0;
     var inp1;
     var inp2;
     var total;
+
+    out.innerHTML = "계산된 값 출력:" + "<br/>";
 
     for (var i = 0; i < inp.length; i++) {
         total = Number(inp[0]);
