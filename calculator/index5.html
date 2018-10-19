@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>객체 계산기</title>
+</head>
+
+<body>
+    <h1>문자열 계산기 구현하기</h1>
+
+    <div>
+        <input type="text" id="input"><br/>
+        <button onclick="calc();">출력</button>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+
+        var input = {};
+        input.init = function (str) {
+            this.list = str.split(" ");
+        }
+        input.getValue = function () {
+            var str = this.list.shift();
+            var n = Number(str);
+            return n;
+        };
+
+        input.getOperator = function () {
+            var op = this.list.shift();
+            if (op === "+" || op === "-" || op === "*" || op === "/" || op === "q") {
+                return op;
+            } else {
+                alert("올바른 연산자를 입력해 주세요.");
+            }
+
+            return op;
+        };
+
+        var calculator = {}
+        calculator.calculate = function (first, second, op) {
+            var ret;
+            switch (op) {
+                case "+":
+                    ret = first + second;
+                    break;
+                case "-":
+                    ret = first - second;
+                    break;
+                case "*":
+                    ret = first * second;
+                    break;
+                case "/":
+                    ret = first / second;
+                    break;
+            }
+
+            return ret;
+        };
+
+        var output = {}
+        output.out = document.getElementById('output');
+        output.print = function (value) {
+            this.out.innerHTML = "최종 결과값은" + value + "입니다.";
+        };
+
+        function calc() {
+            var str = document.getElementById('input').value;
+            input.init(str);
+        }
+    </script>
+</body>
+
+</html>
