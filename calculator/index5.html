@@ -35,7 +35,7 @@
             if (op === "+" || op === "-" || op === "*" || op === "/" || op === "q") {
                 return op;
             } else {
-                alert("올바른 연산자를 입력해 주세요.");
+                return
             }
 
             return op;
@@ -71,6 +71,7 @@
         function calc() {
             var str = document.getElementById('input').value;
             input.init(str);
+            console.log(str)
         }
     </script>
 </body>
