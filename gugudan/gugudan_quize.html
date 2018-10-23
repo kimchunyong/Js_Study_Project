@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>구구단</title>
+</head>
+
+<body>
+    <div class="question"></div>
+    <input type="text" class="rs" placeholder="정답을 입력해주세요.">
+    <button class="quiz_btn">제출</button>
+    <script>
+        var el = document.getElementsByClassName('question')[0];
+        var rs = document.getElementsByClassName('rs')[0];
+        var btn = document.getElementsByClassName('quiz_btn')[0];
+
+        var rdNum1 = parseInt(Math.random() * 9) + 1;
+        var rdNum2 = parseInt(Math.random() * 9) + 1;
+        el.innerHTML = rdNum1 + "X " + rdNum2 + "는 ? "
+
+        btn.addEventListener('click', function () {
+
+            if (Number(rs.value) === rdNum1 * rdNum2) {
+                alert("정답입니다.");
+            } else {
+                alert("틀렸습니다.");
+            }
+        })
+
+    </script>
+</body>
+
+</html>
