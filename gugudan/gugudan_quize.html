@@ -6,29 +6,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>구구단</title>
+    <style>
+        .ququdan_box {
+            position: relative;
+            width: 500px;
+            margin: 50px auto;
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .ququdan_box h1 {
+            font-size: 24px;
+        }
+
+        .ququdan_box h2 {
+            width: 300px;
+            margin: 0 auto 20px auto;
+            background: #ff5722;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .ququdan_box .rs {
+            display: inline-block;
+            width: 240px;
+            height: 24px;
+            padding-left: 10px;
+            vertical-align: middle;
+        }
+
+        .ququdan_box .quiz_btn {
+            display: inline-block;
+            height: 30px;
+            width: 50px;
+            border: 0;
+            background-color: #009688;
+            color: #fff;
+            vertical-align: middle;
+        }
+
+        .score {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="question"></div>
-    <input type="text" class="rs" placeholder="정답을 입력해주세요.">
-    <button class="quiz_btn">제출</button>
+    <div class="ququdan_box">
+        <h1>곱하기 퀴즈!!</h1>
+        <div class="question"></div>
+        <input type="text" class="rs" placeholder="정답을 입력해주세요.">
+        <button class="quiz_btn">제출</button>
+        <div class="score">
+            현재점수:
+            <span class="score_txt"></span>
+        </div>
+    </div>
+
     <script>
         var el = document.getElementsByClassName('question')[0];
         var rs = document.getElementsByClassName('rs')[0];
         var btn = document.getElementsByClassName('quiz_btn')[0];
-
+        var score = document.getElementsByClassName('score_txt')[0];
+        var score_txt = 0;
         var rdNum1 = parseInt(Math.random() * 9) + 1;
         var rdNum2 = parseInt(Math.random() * 9) + 1;
-        el.innerHTML = rdNum1 + "X " + rdNum2 + "는 ? "
+
+
+        el.innerHTML = "<h2>" + rdNum1 + " X " + rdNum2 + " 는 ? " + "</h2>"
+        score.innerHTML = 0;
+        rs.focus();
 
         btn.addEventListener('click', function () {
             if (Number(rs.value) === rdNum1 * rdNum2) {
                 alert("정답입니다.");
+                rs.focus();
+                rs.value = "";
+                rdNum1 = parseInt(Math.random() * 9) + 1;
+                rdNum2 = parseInt(Math.random() * 9) + 1;
+                el.innerHTML = "<h2>" + rdNum1 + " X " + rdNum2 + " 는 ? " + "</h2>"
+                score_txt += 10;
+                score.innerHTML = score_txt;
             } else {
-                alert("틀렸습니다.");
+                alert("틀렸습니다.다시 입력해 주세요.");
+                rs.focus();
+                rs.value = "";
+                score_txt -= 5;
+                score.innerHTML = score_txt;
             }
         })
-
     </script>
 </body>
 
