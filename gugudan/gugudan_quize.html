@@ -81,21 +81,26 @@
         rs.focus();
 
         btn.addEventListener('click', function () {
-            if (Number(rs.value) === rdNum1 * rdNum2) {
-                alert("정답입니다.");
-                rs.focus();
-                rs.value = "";
-                rdNum1 = parseInt(Math.random() * 9) + 1;
-                rdNum2 = parseInt(Math.random() * 9) + 1;
-                el.innerHTML = "<h2>" + rdNum1 + " X " + rdNum2 + " 는 ? " + "</h2>"
-                score_txt += 10;
-                score.innerHTML = score_txt;
+            if (rs.value.length !== 0) {
+                if (Number(rs.value) === rdNum1 * rdNum2) {
+                    alert("정답입니다.");
+                    rs.focus();
+                    rs.value = "";
+                    rdNum1 = parseInt(Math.random() * 9) + 1;
+                    rdNum2 = parseInt(Math.random() * 9) + 1;
+                    el.innerHTML = "<h2>" + rdNum1 + " X " + rdNum2 + " 는 ? " + "</h2>"
+                    score_txt += 10;
+                    score.innerHTML = score_txt;
+                } else {
+                    alert("틀렸습니다.다시 입력해 주세요.");
+                    rs.focus();
+                    rs.value = "";
+                    score_txt -= 5;
+                    score.innerHTML = score_txt;
+                }
             } else {
-                alert("틀렸습니다.다시 입력해 주세요.");
+                alert("답을 입력해주세요.");
                 rs.focus();
-                rs.value = "";
-                score_txt -= 5;
-                score.innerHTML = score_txt;
             }
         })
     </script>
