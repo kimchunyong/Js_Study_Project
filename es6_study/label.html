@@ -10,6 +10,9 @@
 <body>
     <script>
         /*
+            레이블로는 위에서 아래로 이동만 가능
+        */
+        /*
         abc: {
             console.log('start');
             if (true) {
@@ -19,6 +22,7 @@
         console.log('end');
         */
 
+        /*
         console.log('0');
         abc: {
             if (true) {
@@ -29,6 +33,38 @@
         bbb:
         console.log('2');
 
+        temp38:
+        for (var i = 0; i < 10; i++) {
+            if (i == 5) break temp38;
+        }
+        console.log('end');
+        */
+        /*
+        var a = true;
+        temp17:
+        switch (a) {
+            default: console.log('c');
+            case f1(a): console.log('a'); break temp17;
+            case f2(a): console.log('b');
+        }
+        console.log('end');
+
+        switch (true) {
+            case network() === 'online':
+            case network() === 'wifi':
+            case network() === 'offline':
+            case localCache():
+            default: // 안내문...
+        }
+        */
+        var c = 2;
+        switch (true) {
+            case c++ > 5: console.log(c); break;
+            case c++ > 5: console.log(c); break;
+            case c++ > 5: console.log(c); break;
+            case c++ > 5: console.log(c); break;
+            case c++ > 5: console.log(c); break;
+        }
 
     </script>
 </body>
