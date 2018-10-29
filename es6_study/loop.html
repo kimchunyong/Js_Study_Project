@@ -25,6 +25,21 @@
         }
         */
 
+        const object = {
+            test(str) {
+                return true;
+            }
+        }
+
+        const Test = class {
+            test(str) {
+                return true;
+            }
+        }
+
+        const test = new Test();
+
+        /*
         const loop = (iter, f) => {
             if (typeof iter[Symbol.iterator] == 'function') {
                 iter = iter[Symbol.iterator]();
@@ -50,6 +65,7 @@
             }
         };
         loop(iter);
+        */
     </script>
 </body>
 
