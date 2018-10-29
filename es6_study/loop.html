@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>loop & iterator</title>
+</head>
+
+<body>
+    <script>
+        /*
+        var s = {
+            test(str) { return true; }
+        }
+        
+        {
+            data: [1, 2, 3, 4],
+                next(){
+                return {
+                    done: this.data.length === 0,
+                    value: this.data.pop()
+                }
+            }
+        }
+        */
+
+        const loop = (iter, f) => {
+            if (typeof iter[Symbol.iterator] == 'function') {
+                iter = iter[Symbol.iterator]();
+            } else return;
+
+            if (typeof iter.next != 'function') return;
+
+            do {
+                const v = iter.next();
+                if (v.done) return; //종료처리
+                if (v.value);
+            } while (true);
+        }
+
+        const iter = {
+            arr: [1, 2, 3, 4],
+            [Symbol.iterator]() { return this; },
+            next() {
+                return {
+                    done: this.arr.length == 0,
+                    value: this.arr.pop()
+                };
+            }
+        };
+        loop(iter);
+    </script>
+</body>
+
+</html>
