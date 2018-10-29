@@ -8,7 +8,9 @@
 </head>
 
 <body>
+    <div id="print"></div>
     <script>
+        //1
         /*
         var s = {
             test(str) { return true; }
@@ -23,7 +25,7 @@
                 }
             }
         }
-        */
+        
 
         const object = {
             test(str) {
@@ -38,8 +40,7 @@
         }
 
         const test = new Test();
-
-        /*
+    
         const loop = (iter, f) => {
             if (typeof iter[Symbol.iterator] == 'function') {
                 iter = iter[Symbol.iterator]();
@@ -66,6 +67,30 @@
         };
         loop(iter);
         */
+
+        //2
+        const log = (data) => {
+            document.getElementById('print').innerHTML += data + '<br>';
+        }
+        const iterator = {
+            data: [1, 2, 3, 4],
+            next() {
+                return {
+                    done: this.data.length === 0,
+                    value: this.data.pop()
+                };
+            }
+        };
+        let iResult = iterator.next()
+        log(iResult.value + ' : ' + iResult.done);
+        iResult = iterator.next()
+        log(iResult.value + ' : ' + iResult.done);
+        iResult = iterator.next()
+        log(iResult.value + ' : ' + iResult.done);
+        iResult = iterator.next()
+        log(iResult.value + ' : ' + iResult.done);
+        iResult = iterator.next()
+        log(iResult.value + ' : ' + iResult.done);
     </script>
 </body>
 
