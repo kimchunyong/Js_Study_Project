@@ -44,7 +44,7 @@ calc.multiply = function (a, b) {
     return Number(b) * Number(a);
 }
 
-calc.divide(a, b){
+calc.divide = function (a, b) {
     return Number(b) / Number(a);
 }
 
