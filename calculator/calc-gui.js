@@ -11,11 +11,21 @@ calc.click = function (e) {
 }
 
 calc.pushList = function (val) {
-    console.log(val);
+    var listLast = this.list.substr(this.list.length - 1);
+    if (!Number(val) && this.list.length === 0) {
+        throw new Error("맨처음 연산자를 넣을수 없습니다.")
+    }
 
-    this.list += val;
-    console.log(this.list)
-    console.log(this.list[this.list.length - 1])
+    if (Number(listLast) === Number(val)) {
+        alert('연산자를 연속으로 입력할수 없습니다.');
+        return false;
+    } else {
+        if (!Number(listLast) && !Number(val)) {
+            return false;
+        } else {
+            this.list += val;
+        }
+    }
 }
 
 var ele = document.getElementById('calc_wrap');
