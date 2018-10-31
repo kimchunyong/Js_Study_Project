@@ -20,7 +20,7 @@ calc.pushList = function (val) {
         alert('연산자를 연속으로 입력할수 없습니다.');
         return false;
     } else {
-        if (!Number(listLast) && !Number(val)) {
+        if (!Number(listLast) && !Number(val) || val == '=') {
             return false;
         } else {
             this.list += val;
@@ -28,7 +28,30 @@ calc.pushList = function (val) {
     }
 }
 
-var ele = document.getElementById('calc_wrap');
-ele.addEventListener('click', function (e) {
-    calc.click(e);
-})
+calc.filterList = function () {
+    var getList = this.list;
+}
+
+calc.add = function (a, b) {
+    return Number(b) + Number(a);
+}
+
+calc.subtract = function (a, b) {
+    return Number(b) * Number(a);
+}
+
+calc.multiply = function (a, b) {
+    return Number(b) * Number(a);
+}
+
+calc.divide(a, b){
+    return Number(b) / Number(a);
+}
+
+function eventListener() {
+    var ele = document.getElementById('calc_wrap');
+    ele.addEventListener('click', function (e) {
+        calc.click(e);
+    })
+}
+eventListener();
