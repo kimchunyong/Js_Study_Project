@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            background: #fff;
+            border: 0;
+            box-sizing: border-box;
+            cursor: pointer;
+            outline-style: none;
+        }
+
+        #calc_wrap {
+            position: relative;
+            width: 300px;
+            margin: 50px auto 0 auto;
+        }
+
+        .btn:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .btn>button {
+            display: block;
+            float: left;
+            width: 33.3%;
+            height: 80px;
+            border: 1px solid #999;
+            background-color: #fafafa;
+        }
+
+        .oprate {
+            position: absolute;
+            top: 0;
+            right: -100px;
+            width: 100px;
+            height: 80px;
+        }
+
+        .oprate>button {
+            display: block;
+            width: 100%;
+            height: 80px;
+            border: 1px solid #fff;
+            background-color: #ffc107;
+        }
+
+        #output {
+            border: 1px solid #999;
+            height: 160px;
+            line-height: 160px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="calc_wrap">
+        <div class="btn">
+            <button id="7">7</button>
+            <button id="8">8</button>
+            <button id="9">9</button>
+        </div>
+        <div class="btn">
+            <button id="4">4</button>
+            <button id="5">5</button>
+            <button id="6">6</button>
+        </div>
+        <div class="btn">
+            <button id="1">1</button>
+            <button id="2">2</button>
+            <button id="3">3</button>
+        </div>
+        <div class="oprate">
+            <button id="dividing">/</button>
+            <button id="multiply">X</button>
+            <button id="subtraction">-</button>
+            <button id="addition">+</button>
+            <button id="result">=</button>
+        </div>
+
+        <div id="output">결과가 여기에 나옵니다.</div>
+    </div>
+
+    <script src="./calc-gui.js"></script>
+</body>
+
+</html>
