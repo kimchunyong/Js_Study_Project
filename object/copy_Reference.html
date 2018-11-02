@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //참조,복사
+        /*
+        var x = 10;
+        var y = x;
+
+        x = 20;
+        console.log(y); //y:10, x = 20;
+        */
+
+        /*
+        function swap(a, b) {
+            var temp = a; //5
+            a = b; //10
+            b = temp;
+
+            console.log(a);
+            console.log(b);
+        }
+
+        var x = 5;
+        var y = 10;
+        swap(x, y);
+        */
+
+        //y = 5, x = 10;
+
+
+        /*
+        var x = [1, 2, 3];
+        var y = [];
+
+        y.push(4);
+        console.log(y, x);
+
+        //배열을 복사
+        //원시값은 복사 - true,false,null,undefined,숫자,문자
+        //나머지 참조
+        for (var i = 0; i < x.length; i++) {
+            y.push(x[i]);
+        }
+        */
+
+        function swapObj(a, b) {
+            temp = { q: a.q, w: a.w };
+            a.q = b.q;
+            a.w = b.w;
+            b.q = temp.q;
+            b.w = temp.w;
+        }
+
+        var x = { q: 1, w: 1 };
+        var y = { q: 2, w: 2 };
+
+        swapObj(x, y);
+
+        console.log(x)
+        console.log(y)
+
+    </script>
+</body>
+
+</html>
