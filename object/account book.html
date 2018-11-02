@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var account_books = [];
+        var total = 0;
+
+        function deposit(amount, name) {
+            if (amount + total < 0) {
+                throw new Error(`Not enough ba balance for 보험료...`);
+            }
+            account_books.push({
+                amount: amount,
+                name: name,
+            });
+            total += amount;
+        }
+
+        function print() {
+            var result = '';
+            for (var i = 0; i < account_books.length; i++) {
+                var account_book = account_books[i];
+                result += `${account_book.amount > 0 ? '입금' : '출금'}\t ${account_book.name}\t  ${account_book.amount}\n`;
+            }
+            result += `잔액 ${total}`;
+            console.log(result);
+        }
+
+        try {
+            deposit(100, "월급");
+            deposit(200, "용돈");
+            deposit(-150, "월세");
+            deposit(-300, "보험료");
+        } catch (e) {
+            console.log(e);
+        }
+
+        print();
+    </script>
+</body>
+
+</html>
