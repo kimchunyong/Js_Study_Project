@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //가계부
+
+        var amounts = [];
+        var names = [];
+        var total = 0;
+
+        function deposit(amount, str) {
+            if (amount + total < 0) {
+                throw new Error(`Not enough ba balance for 보험료...`);
+            }
+            amounts.push(amount);
+            names.push(str);
+            total += amount;
+        }
+
+
+        function print() {
+            var result = '';
+            for (var i = 0; i < amounts.length; i++) {
+
+                result += `${amounts[i] > 0 ? '입금' : '출금'}\t ${names[i]}\t  ${amounts[i]}\n`;
+            }
+            result += `잔액 ${total}`;
+            console.log(result)
+
+        }
+
+        try {
+            deposit(100, "월급");
+            deposit(200, "용돈");
+            deposit(-150, "월세");
+            deposit(-300, "보험료");
+        } catch (e) {
+            console.log(e);
+        }
+
+        print();
+
+
+    </script>
+</body>
+
+</html>
