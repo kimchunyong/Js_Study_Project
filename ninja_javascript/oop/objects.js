@@ -17,6 +17,7 @@ class UserInfo {
     constructor(email, name) {
         this.email = email;
         this.name = name;
+        UserInfo.arr.push(this);
     }
 
     login() {
@@ -27,8 +28,13 @@ class UserInfo {
         console.log(`${this.email}, has logged out`);
     }
 }
+UserInfo.arr = [];
 
 var userOne = new UserInfo('ryu@ninjas.com', 'Ryu');
+var userTwo = new UserInfo('kim@naver.com', 'kim');
 
 console.log(userOne.login());
 console.log(userOne.logout());
+
+console.log(userTwo.login());
+console.log(userTwo.logout());
