@@ -13,28 +13,33 @@ var userOne = {
 };
 */
 
-class UserInfo {
+class User {
     constructor(email, name) {
         this.email = email;
         this.name = name;
-        UserInfo.arr.push(this);
+        this.score = 0;
+        User.arr.push(this);
     }
 
     login() {
         console.log(`${this.email}, has logged in`);
+        return this;
     }
 
     logout() {
         console.log(`${this.email}, has logged out`);
+        return this;
+    }
+    updateScore() {
+        this.score++;
+        console.log(this.email, 'score is noew', this.score);
+        return this;
     }
 }
-UserInfo.arr = [];
+User.arr = [];
 
-var userOne = new UserInfo('ryu@ninjas.com', 'Ryu');
-var userTwo = new UserInfo('kim@naver.com', 'kim');
+var userOne = new User('ryu@ninjas.com', 'Ryu');
+var userTwo = new User('kim@naver.com', 'kim');
 
-console.log(userOne.login());
-console.log(userOne.logout());
 
-console.log(userTwo.login());
-console.log(userTwo.logout());
+userOne.login()
