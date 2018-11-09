@@ -10,8 +10,64 @@
 
 <body>
     <script>
-        var sum = function (a, b) { return a + b };
+        /*
+        함수도 값(객체)다
 
+        var x = 1;
+        for (var i = 0; i < 10; i++) {
+            x *= 5;
+        }
+
+        var x = someFunc(1, function (x) {
+            return x *= 5;
+        }, 10);
+        
+
+        var func2 = (x, y) => {
+            console.log(x, y);
+        }
+
+        var x = () => {};
+
+        (x,y) => {
+            console.log();
+        };
+        
+        인자가 하나일때 ()생략 가능
+        x = > {
+            return 1;
+        }
+
+        var add = x => x + 1;
+        add(5) //6
+        */
+
+        var arr = [
+            { x: 1, y: 'hello1' },
+            { x: 2, y: 'hello2' },
+            { x: 3, y: 'hello3' },
+            { x: 4, y: 'hello4' },
+            { x: 5, y: 'hello5' },
+        ];
+
+        // forEach: arr의 원소들에 반복적으로 같은 작업하기.
+        /*
+        for (var i = 0; i < arr.length; i++) {
+            console.log(arr[i].x);
+        }
+
+        arr.forEach(obj => console.log(obj.x)) //Function 타입 인자 <function>
+        */
+
+        //map : arr의 원소들에 반복적으로 같은 변화를 준 새로운 arr;
+
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            var sumObj = arr[i].x + arr[i].y;
+            newArr.push(sumObj);
+        }
+
+        console.log(newArr);
     </script>
 </body>
 
