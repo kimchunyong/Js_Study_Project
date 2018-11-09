@@ -50,7 +50,7 @@
      
              var SOM_CONSTANT = "./files/path/fixed";
          */
-
+        /*
         class SuperUser {
             constructor(name) {
                 this.name = name;
@@ -63,6 +63,38 @@
 
         var user = new SuperUser("abc");
         user.printUserName();
+        */
+        /* 메소드 체이닝*/
+        class Ball {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+
+            moveRight(amount) {
+                this.x += amount || 1; //인자가 전달안되거나 undefined , null, false 라면 || 1이 실행
+                return this;
+            }
+
+            moveLeft(amount) {
+                this.x -= amount || 1;
+                return this;
+            }
+
+            moveUp(amount) {
+                this.y += amount || 1;
+                return this;
+            }
+
+            moveDown(amount) {
+                this.y -= amount || 1;
+                return this;
+            }
+        }
+
+        var ball = new Ball(10, 10);
+        ball.moveRight(10);
+        ball.moveDown(10);
     </script>
 </body>
 
