@@ -10,23 +10,59 @@
 
 <body>
     <script>
-      /*
+        /*
         타입 - 메모리에 저장된 값들이 구성된 방식 - (어떤 설계도?, 어떤 클래스?)
-
+    
         타입을 읽을 수 있어야
         - 이름이 가리키는 것이 무슨 속성을 지녔는지
         - 또 함수라면 무슨 인자를 원하는지 알 수 있음
-
-
+    
+    
         -- strongly
         "1" + 1; //Error!
         (Number)"1" + 1;
-
+    
         -- Weakly
         "1" + 1;
-        
-      */
+        */
+        /*
+         PascalCase
+         camelCase
+         snake_case
+     
+         - 클래스나 단일 객체의 이름은 보통 PascalCase
+     
+         - 그 외의 이름은 camelCase
+         
+         - 함수 /메소드는 동사형으로
+     
+             function setColor(){
+     
+             }
+     
+             function getColor(){
+     
+             }
+     
+         - 이외의 값은 명사형으로(단/ 복수를 따져서)
+     
+         - 상수(변하지 않는/않을 값)에 대해서는 이런 경우가 있음
+     
+             var SOM_CONSTANT = "./files/path/fixed";
+         */
 
+        class SuperUser {
+            constructor(name) {
+                this.name = name;
+            }
+
+            printUserName() {
+                console.log(this.name);
+            }
+        }
+
+        var user = new SuperUser("abc");
+        user.printUserName();
     </script>
 </body>
 
