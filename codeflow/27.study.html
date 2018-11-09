@@ -64,7 +64,7 @@
         var user = new SuperUser("abc");
         user.printUserName();
         */
-        /* 메소드 체이닝*/
+        /* 메소드 체이닝
         class Ball {
             constructor(x, y) {
                 this.x = x;
@@ -95,6 +95,43 @@
         var ball = new Ball(10, 10);
         ball.moveRight(10);
         ball.moveDown(10);
+
+        ball.moveRight(10).moveDown(10);
+        */
+        var express = require('express');
+        var router = express.Router();
+        var fs = require('fs');
+        var path = require('path');
+        var bodyParser = require('body-parser');
+
+        router.get('/', (req, res) => {
+            res.render('bbs/list', {
+                posts: loadPosts()
+            });
+        });
+
+        // GET /bbs/write
+        router.get('/write', (req, res) => {
+            res.render('bbs/write', {
+            });
+        });
+
+        // POST /bbs/write
+        router.post('/write', bodyParser.urlencoded(), (req, res) => {
+            if (req.body.title == "") throw new Error("No Title");
+            else if (req.body.password != "1234") throw new Error("Invalid Password");
+
+            var id = savePost({
+                title: req.body.title,
+                subtitle: req.body.subtitle,
+                contents: req.body.contents,
+                created: new Date().toString()
+            });
+
+            res.redirect('/bbs/' + id);
+        });
+
+        module.exports = router;
     </script>
 </body>
 
