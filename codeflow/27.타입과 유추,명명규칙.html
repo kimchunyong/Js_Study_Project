@@ -99,10 +99,15 @@
         ball.moveRight(10).moveDown(10);
         */
         var express = require('express');
+        //require함수에 string형태의 값을 전달
         var router = express.Router();
+        //express라는 객체에 Router라는 메소드를 인자없이 사용
         var fs = require('fs');
+        //require함수에 string형태의 값을 전달
         var path = require('path');
+        //require함수에 string형태의 값을 전달
         var bodyParser = require('body-parser');
+        //require함수에 string형태의 값을 전달
 
         router.get('/', (req, res) => {
             res.render('bbs/list', {
@@ -110,12 +115,15 @@
             });
         });
 
+        //express.Router()라는 실행값에 get이라는 ('/') string, 함수 (req, res) 값을 전달, 전달한 res에는 render함수('bbs/list')와 리턴값 => 객체 key값:posts, value값 loadPosts()를 인자로 넘긴다.
+
         // GET /bbs/write
         router.get('/write', (req, res) => {
             res.render('bbs/write', {
             });
         });
 
+        //express.Router()라는 실행값에 get이라는 ('/write') string, 함수 (req, res) 값을 전달, 전달한 res에는 render함수는 return 값 ('bbs/write'),{}
         // POST /bbs/write
         router.post('/write', bodyParser.urlencoded(), (req, res) => {
             if (req.body.title == "") throw new Error("No Title");
