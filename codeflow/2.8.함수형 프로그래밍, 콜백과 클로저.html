@@ -61,13 +61,48 @@
 
         //map : arr의 원소들에 반복적으로 같은 변화를 준 새로운 arr;
 
+        /*
         var newArr = [];
         for (var i = 0; i < arr.length; i++) {
             var sumObj = arr[i].x + arr[i].y;
             newArr.push(sumObj);
         }
+        
+        */
+        /*
+        function changeObj(obj) {
+            return obj.x + obj.y
+        }
+        var arr2 = arr.map((obj) => ++obj.x)
+        console.log(arr2);
+        */
 
-        console.log(newArr);
+        //filter: arr의 원소들 중에 특정 로직을 만족하는 원소만 걸러낸 새로운 arr
+        /*
+        var arr2 = [];
+        for (var i = 0; i < arr.length; i++) {
+            var obj = arr[i];
+            if (obj.x > 3) {
+                arr2.push(obj);
+            }
+        }
+
+        var arr2 = arr.filter(obj => obj.x == 3);
+
+        */
+        /*
+        var bool = false;
+        for (var i = 0; i < arr.length; i++;) {
+            var obj = arr[i];
+            if (obj.x > 3) {
+                bool = true;
+                break;
+            }
+        }
+        */
+        //some Boolean Function<function<>> 원소들 중에 특정 로직을 만족하는 원소가 하나라도 있는지?
+        var bool = arr.some(obj => obj.x > 3);
+        console.log(bool)
     </script>
 </body>
 
