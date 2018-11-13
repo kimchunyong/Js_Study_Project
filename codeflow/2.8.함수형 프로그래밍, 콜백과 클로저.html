@@ -152,6 +152,7 @@
         */
 
         //sort 원소들을 정렬해서 새로운 array로 반환
+        /*
         var arr2 = [];
         for (var i = 0; i < arr.length; i++) {
             arr2.push(arr[i])
@@ -167,6 +168,46 @@
             }
         }
         console.log(arr2);
+
+        var arr2 = arr.sort((a, b) => {
+            if (a.x < b.x) return 1
+            if (a.x == b.x) return 0;
+            return -1;
+        })
+        console.log(arr2)
+        */
+        // concat 인자값을 Array로 받음
+        /*
+        var arr1 = [1, 2, 3];
+        var arr2 = arr1.concat([4, 5, 6]);
+        console.log(arr2);
+        */
+
+        //slice Array를 특정 구간만 잘라내기 Array Function <Number, Number>;
+        /*
+        var arr1 = [1, 2, 3, 4, 5];
+        var arr2 = arr1.slice(0, -1);
+        console.log(arr2)
+        */
+
+        //splice Array의 특정 구간을 바꿔치기 Array Function<Number, Number , .......>
+        /*
+        var arr1 = [1, 2, 3, 4, 5];
+        var arr2 = arr1.splice(0, 2)
+        console.log(arr1, arr2);
+        */
+
+        //join Array를 String으로 합성하기
+        /*
+        var arr1 = ['abc', 'gmail.com', 'xxx'];
+        console.log(arr1.join('-'));
+        */
+
+        // split String을 분리해 Array로 만들기
+        /*
+        var arr2 = '010-1234-1234'.split('-');
+        console.log(arr2)
+        */
     </script>
 </body>
 
