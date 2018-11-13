@@ -121,11 +121,27 @@
         */
 
         //find: 원소들 중에 특정 로직을 만족하는 첫번째 원소
+        /*
         var obj = null;
         for (var i = 0; i < arr.length; i++) {
             var o = arr[i];
             if (o.x > 3) {
                 obj = 0;
+                break;
+            }
+        }
+
+        var obj = arr.find(o => o.x > 3);
+        console.log(obj);
+        */
+
+
+        //findIndex 원소들 중에 특정 로직을 만족하는 첫번째 원소의 인덱스
+        var objIndex = -1;
+        for (var i = 0; i < arr.length; i++) {
+            var obj = arr[i];
+            if (obj.x > 3) {
+                objIndex = i;
                 break;
             }
         }
