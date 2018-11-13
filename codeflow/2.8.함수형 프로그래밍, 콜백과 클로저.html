@@ -157,6 +157,15 @@
             arr2.push(arr[i])
         }
 
+        for (var j = 0; j < arr2.length; j++) {
+            for (var k = j + 1; k < arr2.length; k++) {
+                if (arr2[j].x < arr2[k].x) {
+                    var temp = arr2[j];
+                    arr2[j] = arr2[k];
+                    arr2[k] = temp;
+                }
+            }
+        }
         console.log(arr2);
     </script>
 </body>
