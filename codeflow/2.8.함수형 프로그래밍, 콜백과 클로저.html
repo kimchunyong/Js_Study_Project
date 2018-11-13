@@ -92,7 +92,7 @@
         */
         /*
         var bool = false;
-        for (var i = 0; i < arr.length; i++;) {
+        for (var i = 0; i < arr.length; i++) {
             var obj = arr[i];
             if (obj.x > 3) {
                 bool = true;
@@ -101,8 +101,34 @@
         }
         */
         //some Boolean Function<function<>> 원소들 중에 특정 로직을 만족하는 원소가 하나라도 있는지?
+        /*
         var bool = arr.some(obj => obj.x > 3);
         console.log(bool)
+        */
+
+        //every : 원소들이 모두 특정 로직을 만족하는지?
+        /*
+        var bool = true;
+        for (var i = 0; i < arr.length; i++) {
+            var obj = arr[i];
+            if (!(obj.x > 3)) {
+                bool = false;
+                break;
+            }
+        }
+        
+        var bool = arr.every(obj => obj.x > 3);
+        */
+
+        //find: 원소들 중에 특정 로직을 만족하는 첫번째 원소
+        var obj = null;
+        for (var i = 0; i < arr.length; i++) {
+            var o = arr[i];
+            if (o.x > 3) {
+                obj = 0;
+                break;
+            }
+        }
     </script>
 </body>
 
