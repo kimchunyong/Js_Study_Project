@@ -45,9 +45,9 @@
         var arr = [
             { x: 1, y: 'hello1' },
             { x: 2, y: 'hello2' },
+            { x: 5, y: 'hello5' },
             { x: 3, y: 'hello3' },
             { x: 4, y: 'hello4' },
-            { x: 5, y: 'hello5' },
         ];
 
         // forEach: arr의 원소들에 반복적으로 같은 작업하기.
@@ -137,6 +137,7 @@
 
 
         //findIndex 원소들 중에 특정 로직을 만족하는 첫번째 원소의 인덱스
+        /*
         var objIndex = -1;
         for (var i = 0; i < arr.length; i++) {
             var obj = arr[i];
@@ -145,6 +146,13 @@
                 break;
             }
         }
+        
+        var objIndex = arr.findIndex(o => o.x > 3);
+        console.log(objIndex);
+        */
+
+        //sort 원소들을 정렬해서 새로운 array로 반환
+
     </script>
 </body>
 
