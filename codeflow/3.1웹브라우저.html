@@ -9,25 +9,43 @@
 </head>
 
 <body>
-
+    <div>111</div>
+    <div>222</div>
+    <div class="some-class">hello world</div>
     <script>
-        document.write('현재 시간은 ' + new Date());
+        /*
+        let count = 0;
+        var start = setInterval(() => {
+            if (count == 100) {
+                clearInterval(start);
+            }
+            console.log(count)
+            count++;
+        }, 100)
+        
 
-            /*
-            let count = 0;
-            var start = setInterval(() => {
-                if (count == 100) {
-                    clearInterval(start);
-                }
-                console.log(count)
-                count++;
-            }, 100)
-            
+        setTimeout(function(){
+            //todo
+        },800)
+        */
 
-            setTimeout(function(){
-                //todo
-            },800)
-            */
+        document.title = '111';
+        document.lastModified;
+        document.referrer;
+        document.cookie;
+
+        document.head;
+        document.body;
+        document.images;
+        document.form;
+
+        //document.body와 같음
+        document.children[0].children[1];
+
+        document.getElementsByTagName('div');
+
+        var element = document.querySelector(".some-class");
+        var el = document.body;
     </script>
     <style>
     </style>
