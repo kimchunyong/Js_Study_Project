@@ -285,7 +285,6 @@
         console.log(amounts);
 
         // 금액이 1000 이상이고 paid가 참인 주문의 금액의 합계
-
         var total = orders
             .filter(order => order.paid && order.amount > 1000)
             .reduce((result, order) => result + order.amount, 0);
