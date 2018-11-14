@@ -290,7 +290,7 @@
             .reduce((result, order) => result + order.amount, 0);
         console.log(total);
         */
-
+        /*
         function repeatFunc(f, x) {
             for (var i = 0; i < x; i++) {
                 f()
@@ -301,7 +301,37 @@
         }
 
         repeatFunc(printHelloWorld, 3);
-        repeatFunc(() => { console.log("Hey Hey!") }, 2)
+        repeatFunc(() => { console.log("Hey Hey!") }, 2);
+
+        //callback
+
+        function downloadImage(url, callback) {
+            var image = ...;
+
+            // 다운로드 로직..
+
+            callback(image);
+        }
+
+        downloadImage('http://...', function (image) {
+
+        })
+        */
+
+        Function makeRepeatFunc(f, x) {
+            return function () {
+                for (var i = 0; i < x; i++) {
+                    f();
+                }
+            }
+        }
+
+        function printHelloWorld() {
+            console.log("hello world!");
+        }
+
+        var printHelloWorld3 = makeRepeatFunc(printHelloWorld, 3);
+        printHelloWorld3();
     </script>
 </body>
 
