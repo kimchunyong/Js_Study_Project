@@ -248,7 +248,7 @@
 
         console.log(numbers3);
         */
-
+        /*
         var orders = [
             {
                 id: 1,
@@ -280,7 +280,7 @@
         // 주문을 id순서로 정렬하여 그 금액만을 나열하기
         var amounts = orders
             .sort((o, b) => { return o.id < b.id ? -1 : (o.id == b.id) ? 1 : 0; })
-            .map(order => order.amount)
+            .map(order => order.amount);
 
         console.log(amounts);
 
@@ -289,7 +289,19 @@
             .filter(order => order.paid && order.amount > 1000)
             .reduce((result, order) => result + order.amount, 0);
         console.log(total);
+        */
 
+        function repeatFunc(f, x) {
+            for (var i = 0; i < x; i++) {
+                f()
+            }
+        }
+        function printHelloWorld() {
+            console.log("hello world");
+        }
+
+        repeatFunc(printHelloWorld, 3);
+        repeatFunc(() => { console.log("Hey Hey!") }, 2)
     </script>
 </body>
 
