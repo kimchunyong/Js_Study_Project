@@ -234,7 +234,7 @@
 
         //1. [9,8,7,6,5,4,3,2,1] 하나의 Array형태로 합친다.
         //2. "9-8-7-6-5-4-3-2-1"
-
+        /*
         var numbers2 = [
             [1, 2, 3],
             [6, 5, 4],
@@ -246,8 +246,50 @@
             .sort((a, b) => a < b ? 1 : (a === b ? 0 : -1))
             .join('-');
 
-        console.log(numbers3)
+        console.log(numbers3);
+        */
 
+        var orders = [
+            {
+                id: 1,
+                paid: true,
+                amount: 3000,
+            },
+            {
+                id: 4,
+                paid: false,
+                amount: 100,
+            },
+            {
+                id: 3,
+                paid: true,
+                amount: 800,
+            },
+            {
+                id: 2,
+                paid: false,
+                amount: 3000,
+            },
+            {
+                id: 5,
+                paid: true,
+                amount: 2500,
+            },
+        ];
+
+        // 주문을 id순서로 정렬하여 그 금액만을 나열하기
+        var amounts = orders
+            .sort((o, b) => { return o.id < b.id ? -1 : (o.id == b.id) ? 1 : 0; })
+            .map(order => order.amount)
+
+        console.log(amounts);
+
+        // 금액이 1000 이상이고 paid가 참인 주문의 금액의 합계
+
+        var amounts2 = orders
+            .filter(a => a.paid)
+            .reduce((total, amounts) => { return total += amounts.amount }, 0)
+        console.log(amounts2);
 
     </script>
 </body>
