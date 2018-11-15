@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>공 랜덤색상</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script>
+        var balls = [];
+        var container = document.getElementById('container');
+        container.style.position = "relative"
+        container.style.width = container.style.height = "400px"
+        for (var i = 0; i < 20; i++) {
+            var ball = document.createElement('div');
+            ball.style.position = "absolute"
+            ball.style.borderRadius = "50%";
+            ball.style.display = "inline-block";
+            ball.style.width = ball.style.height = "25px";
+            ball.style.backgroundColor = getRrandomRbg();
+            ball.style.top = Math.floor(Math.random() * 400) + "px";
+            ball.style.left = Math.floor(Math.random() * 400) + "px";
+            balls.push(ball);
+            container.appendChild(ball);
+        }
+
+        setInterval(() => {
+            balls.forEach(ball => {
+                ball.style.backgroundColor = getRrandomRbg();
+            })
+        }, 500)
+
+        function getRrandomRbg() {
+            var r = Math.floor(Math.random() * 255);
+            var g = Math.floor(Math.random() * 255);
+            var b = Math.floor(Math.random() * 255);
+
+            return `rgb(${r},${g},${b},0.6)`;
+        }
+
+    </script>
+</body>
+
+</html>
