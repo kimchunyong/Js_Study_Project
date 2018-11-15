@@ -28,11 +28,17 @@
             container.appendChild(ball);
         }
 
+        var x = 0;
+        var y = 0;
         setInterval(() => {
             balls.forEach(ball => {
                 ball.style.backgroundColor = getRrandomRbg();
+                x = (x + Math.floor(Math.random() * 400)) % 600;
+                y = (y + Math.floor(Math.random() * 500)) % 300;
+                ball.style.left = x + 'px';
+                ball.style.top = y + 'px';
             })
-        }, 500)
+        }, 500);
 
         function getRrandomRbg() {
             var r = Math.floor(Math.random() * 255);
