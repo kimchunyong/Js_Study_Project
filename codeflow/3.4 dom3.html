@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="some-id">div#dome-id</div>
+    <script>
+        var el = document.getElementById("some-id");
+        var el_img = document.createElement('img');
+        var el_h2 = document.createElement('h2');
+
+        el_img.setAttribute("src", "http://workshop.benzen.io/assets/logo.png");
+        el_img.style.width = "300px";
+        el_img.style.height = "300px";
+
+        el_h2.textContent = "Hello!"
+
+        el.appendChild(el_img);
+        el.appendChild(el_h2);
+        //el.appendChild(el_h2); 참조로 인해 한번만 넣을수있음
+        //el.appendChild(el_h2);
+        //el.appendChild(el_h2);
+
+        setTimeout(() => {
+            el.removeChild(el_h2);
+            el.removeChild(el_img);
+        }, 3000)
+
+    </script>
+</body>
+
+</html>
