@@ -66,7 +66,22 @@
                 x = 0;
                 y = 0;
             }*/
-        }, 10)
+        }, 10);
+
+        //dom에서 모두 돌면서 특정 태그를 찾을때
+
+        var els = document.all;
+        for (var i = 0; i < els.length; i++) {
+            var el = els[i];
+            if (el.tagName == "IMG") {
+                console.log(el.src)
+            }
+        }
+
+        var a = document.createElement("div");
+        a.textContent = "안녕"
+        var s = document.body.appendChild(a);
+        s.appendChild(document.createElement("b"));
     </script>
     <style>
     </style>
