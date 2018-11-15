@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>웹 브라우저</title>
+    <title>javascript</title>
 </head>
 
 <body>
-    <div id="some-id">div#some-id</div>
+    <!--div id="some-id">div#some-id</div>
     <div class="some-class">
         div.some-class
         <div class="some2-class">
@@ -20,8 +20,11 @@
         <p>form[name=form1] > p</p>
         <input type="text" name="text1" id="">
         <input type="password" name="pass1" id="">
-    </form>
+    </form-->
+    <div id="some-id">div#some-id</div>
     <script>
+
+        /*
         var someId = document.getElementById("some-id").textContent = "X";
         var someClass = document.getElementsByClassName('some-class')[0]
         someClass.childNodes[0].nodeValue = "Y";
@@ -31,6 +34,39 @@
         form.children[0].textContent = "A";
         form.children[1].value = "B";
         form.children[2].value = "C";
+        */
+        //Element Node
+
+        /** 내용 제어 **/
+        /*
+        element.textContent;
+        element.innerHTML;
+        element.innerText;
+        element.attributes;
+        element.setAttribute("name", "h5");
+        element.getAttribute("name");
+        element.removeAttribute("name");
+        */
+
+        var someId = document.getElementById('some-id');
+        someId.textContent = "Text";
+        someId.style.position = "absolute";
+        someId.style.border = "1px solid red";
+        someId.style.color = "red";
+        var x = 0;
+        var y = 0;
+
+
+        var movingTxt = setInterval(function () {
+            x = (x + 2) % 600;
+            y = (y + 1) % 300;
+            someId.style.left = x + 'px';
+            someId.style.top = y + 'px';
+            /*if (x === 300 && y === 300) {
+                x = 0;
+                y = 0;
+            }*/
+        }, 10)
     </script>
     <style>
     </style>
