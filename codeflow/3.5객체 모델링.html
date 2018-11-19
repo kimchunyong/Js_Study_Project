@@ -24,10 +24,12 @@
         kim.speakName(10);
         */
 
+        /*
         var Person = function (name) {
             this.name = name; //인스턴스 속성
         };
-        Person.prototype.speakName = function (number) {
+
+        Person.prototype.speakName = function (number) { // 인스턴스간 공유되는 메소드, prototype 체인으로 인해 생성자가 생성될때마다 생성되는게아닌 공유하는 메소드
             for (var i = 0; i < number; i++) {
                 console.log(`my name is ${this.name}`);
             }
@@ -35,6 +37,22 @@
 
         var kim = new Person('kim');
         kim.speakName(10);
+        */
+
+        /*
+        var Person = function (name) {
+            if (name) {
+                this.name = name;
+            }
+        }
+        Person.prototype.name = "WHOIS";
+
+        var noname = new Person();
+        console.log(noname.name);
+
+        var kim = new Person("kim");
+        console.log(kim.name);
+        */
 
     </script>
 </body>
