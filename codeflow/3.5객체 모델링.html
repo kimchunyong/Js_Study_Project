@@ -54,6 +54,47 @@
         console.log(kim.name);
         */
 
+        /*
+        var Person = function (name) {
+            this.name = name;
+
+            Person.list.push(this);
+        }
+
+        Person.list = []; //클래스 속성
+        Person.printAllNames = function (person) {
+            Person.list.forEach(function (person) {
+                console.log(person.name);
+            })
+        }
+
+        var son = new Person('SON');
+        var kim = new Person('KIM');
+
+        Person.printAllNames();
+        */
+
+        var Dog = function (name, age, color) {
+            this.name = name;
+            this.age = age;
+            this.color = color;
+            this.constructor.totalDogs++;
+        };
+
+        Dog.prototype.speak = function () {
+            console.log(`안녕 내 이름은, ${this.name} 이고 내 나이는 ${this.age}이고 내 색깔은 ${this.color}이야 반가워!`)
+        }
+
+        Dog.totalDogs = 0;
+
+        Dog.printTotalDogs = function () {
+            console.log(`모두, ${Dog.totalDogs} 마리의 멍멍이`);
+        };
+
+        var mong = new Dog('mong', 6, "black and white");
+        var mung = new Dog('mung', 3, "white");
+        mung.speak();
+        Dog.printTotalDogs();
     </script>
 </body>
 
