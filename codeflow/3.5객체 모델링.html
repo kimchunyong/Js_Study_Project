@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>생성자 함수와 인스턴스</title>
+</head>
+
+<body>
+    <script>
+        var Person = function (name) {
+            this.name = name;
+            this.speakName = function (number) {
+                for (var i = 0; i < number; i++) {
+                    console.log(`my name is ${this.name}`);
+                }
+            }
+        };
+
+        var kim = new Person('kim');
+        kim.speakName(10);
+    </script>
+</body>
+
+</html>
