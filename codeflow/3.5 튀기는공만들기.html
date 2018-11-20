@@ -62,6 +62,84 @@
         Ball.prototype.getY = function () {
             return this.y;
         }
+
+        var Container = function (width, height) {
+            //Data
+            this.objects = [];
+            this.width = width || 500;
+            this.height = height || 500;
+
+            //View
+            this.view = document.createElement('div');
+            this.view.style.border = "1px dashed red";
+            this.view.style.position = "relative";
+            this.view.style.width = this.width + "px";
+            this.view.style.height = this.height + "px";
+        }
+
+        Container.prototype.addObject = function (obj) {
+            //Data
+            this.objects.push(obj);
+
+            //View
+            this.view.appendChild(obj.getView());
+            return this;
+        }
+
+        Container.prototype.moveObjects = function () {
+            for (var i = 0; i < this.objects.length; i++) {
+                var obj = this.objects[i];
+                obj.move();
+
+                var x = obj.getX(),
+                    y = obj.getY(),
+                    collision = false;
+
+                if (x < 0 || x > this.width) {
+                    obj.collideX();
+                    collision = true;
+                }
+
+                if (y < 0 || y > this.height) {
+                    obj.collideY();
+                    collision = true;
+                }
+
+                if (collision) {
+                    obj.move();
+                }
+            }
+
+            return this;
+        }
+
+        Container.prototype.getView = function () {
+            return this.view;
+        }
+
+        /** 공용 함수 **/
+
+        function randomRGB() {
+            var r = parseInt(Math.random() * 255),
+                g = parseInt(Math.random() * 255),
+                b = parseInt(Math.random() * 255),
+                rgb = "rgb(" + r + "," + g + "," + b + ")";
+
+            return rgb;
+        }
+
+        var container = new Container(400, 400);
+
+        for (var i = 0; i < 20; i++) {
+            var ball = new Ball(200, 200);
+            container.addObject(ball);
+        }
+
+        document.body.appendChild(container.getView());
+
+        setInterval(function () {
+            container.moveObjects();
+        }, 20); 
     </script>
 </body>
 
