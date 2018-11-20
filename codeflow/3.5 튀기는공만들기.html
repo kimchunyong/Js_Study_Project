@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>공 랜덤색상</title>
+</head>
+
+<body>
+    <script>
+        var Ball = function (x, y, radius) {
+            //Data
+            this.x = x || 0; //x는 값이 undefined이면 0
+            this.y = y || 0; //y는 값이 undefined이면 0
+            this.radius = radius || 10; //radius의 값이 없으면 10이 최소값
+            this.vx = ~~(Math.random() * 10) - 5;
+            this.vy = ~~(Math.random() * 10) - 5;
+
+            //view
+            this.view = document.createElement('div');
+            this.view.style.backgroundColor = randomRGB();
+            this.view.style.width = this.view.style.height = this.radius * 2 + "px";
+            this.view.style.borderRadius = "50%";
+            this.view.style.position = "absolute";
+            this.view.left = this.x + "px";
+            this.view.top = this.y + "px";
+        }
+
+        Ball.prototype.move = function () {
+            //Data
+            this.x += this.vx;
+            this.y += this.vy;
+
+            //view
+            this.view.style.left = this.x - this.radius + "px";
+            this.view.style.top = this.y - this.radius + "px";
+            return this;
+        }
+
+        Ball.prototype.collideX = function () {
+            //Data
+            this.vx *= -1;
+            return this;
+        }
+
+        Ball.prototype.collideY = function () {
+            //Data
+            this.vy *= -1;
+            return this;
+        }
+
+        Ball.prototype.getView = function () {
+            return this.view;
+        }
+
+        Ball.prototype.getX = function () {
+            return this.x;
+        }
+
+        Ball.prototype.getY = function () {
+            return this.y;
+        }
+    </script>
+</body>
+
+</html>
