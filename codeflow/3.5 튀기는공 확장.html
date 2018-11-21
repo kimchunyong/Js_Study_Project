@@ -17,6 +17,16 @@
                 this.height = state.height || 10;
 
                 //view
+                this.$view = this.createView(state);
+                this.$view.style.position = 'absolute';
+                this.$view.style.width = this.width + 'px';
+                this.$view.style.height = this.height + 'px';
+            }
+
+            createView(state) {
+                var $view = document.createElement('div');
+                $view.style.backgroundColor = 'black';
+                return $view;
             }
         }
     </script>
