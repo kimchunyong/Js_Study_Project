@@ -28,6 +28,37 @@
                 $view.style.backgroundColor = 'black';
                 return $view;
             }
+
+            getView() {
+                return this.$view;
+            }
+
+            getSize() {
+                return {
+                    width: this.$view.clientWidth,
+                    height: this.$view.clientHeight,
+                }
+            }
+            getState() {
+                return {
+                    x: this.x,
+                    y: this.y,
+                    vx: this.vx,
+                    vy: this.vy,
+                }
+            }
+
+            setState(state = { x: 0, y: 0, vx: 0, vy: 0 }) {
+                //data
+                this.x = state.x;
+                this.y = state.y;
+                this.vx = state.vx;
+                this.vy = state.vy;
+
+                //view
+                this.$view.style.left = this.x + 'px';
+                this.$view.style.top = this.y + 'px';
+            }
         }
     </script>
 </body>
