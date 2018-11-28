@@ -26,13 +26,37 @@ var btn = document.createElement('button');
 btn.textContent = '입력'
 form.append(btn);
 
-
-
 form.addEventListener('submit', function callBack(e) {
     e.preventDefault();
-    var result = input.value;
-    console.log(result);
+    var getInput = input.value;
+    var baseStr = baseArr.join("");
 
+    if (getInput === baseStr) {
+        result.textContent = '홈런'
+        input.value = '';
+        input.focus();
+        numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        baseArr = [];
+        for (var i = 0; i < 4; i++) {
+            var RandomNum = Math.floor(Math.random() * numArr.length);
+            var getArr = numArr.splice(RandomNum, 1)[0];
+            baseArr.push(getArr);
+        }
+    } else {
+        var resultArr = getInput.split('');
+        var strike = 0;
+        var ball = 0;
+        console.log(resultArr)
+
+        for (var i = 0; i < 4; i++) {
+            if (resultArr[i] === baseArr[i]) {
+                strike++;
+            } else if (baseArr.indexOf(Number(resultArr[i])) > -1) {
+                ball++;
+            }
+        }
+        result.textContent = '스트라이크' + strike + '볼' + ball + '입니다.'
+    }
 })
 
 
