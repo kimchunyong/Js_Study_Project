@@ -1,12 +1,17 @@
 var body = document.body;
+var numArr;
+var baseArr;
 
-var numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-var baseArr = [];
-for (var i = 0; i < 4; i++) {
-    var RandomNum = Math.floor(Math.random() * numArr.length);
-    var getArr = numArr.splice(RandomNum, 1)[0];
-    baseArr.push(getArr);
-}
+function numSelct() {
+    numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    baseArr = [];
+    for (var i = 0; i < 4; i++) {
+        var RandomNum = Math.floor(Math.random() * numArr.length);
+        var getArr = numArr.splice(RandomNum, 1)[0];
+        baseArr.push(getArr);
+    }
+} numSelct();
+
 
 var result = document.createElement('h1');
 body.append(result);
@@ -41,13 +46,7 @@ form.addEventListener('submit', function callBack(e) {
         result.textContent = '홈런'
         input.value = '';
         input.focus();
-        numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        baseArr = [];
-        for (var i = 0; i < 4; i++) {
-            var RandomNum = Math.floor(Math.random() * numArr.length);
-            var getArr = numArr.splice(RandomNum, 1)[0];
-            baseArr.push(getArr);
-        }
+        numSelct();
         inputFalse = 0;
     } else {
         var resultArr = getInput.split('');
@@ -58,13 +57,7 @@ form.addEventListener('submit', function callBack(e) {
             result.textContent = '10번 넘게 틀려서 실패! 답은' + baseArr.join() + '입니다.'
             input.value = '';
             input.focus();
-            numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-            baseArr = [];
-            for (var i = 0; i < 4; i++) {
-                var RandomNum = Math.floor(Math.random() * numArr.length);
-                var getArr = numArr.splice(RandomNum, 1)[0];
-                baseArr.push(getArr);
-            }
+            numSelct();
             inputFalse = 0;
         } else {
             for (var i = 0; i < 4; i++) {
