@@ -62,7 +62,6 @@ col.forEach(function (el) {
                 var whatCol = cols[whatRow].indexOf(baseArr[rndIdx]);
                 var checkLine = false;
                 //가로 3칸 확인
-                console.log(cols[whatRow][whatCol])
                 if (cols[whatRow][0].textContent == 'O' && cols[whatRow][1].textContent == 'O' && cols[whatRow][2].textContent == 'O') {
                     checkLine = true;
                 }
