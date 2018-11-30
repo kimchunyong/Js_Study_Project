@@ -79,7 +79,7 @@ col.forEach(function (el) {
 
                 // 다 찼을때
                 if (checkLine) {
-                    alert('Y 승리');
+                    alert('O' 승리');
                     return false;
                 }
                 clickArr.push(baseArr[rndIdx]);
