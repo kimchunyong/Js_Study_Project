@@ -14,12 +14,14 @@ for (var i = 0; i < 3; i++) {
 document.body.append(wrap);
 
 var flag = true;
+var baseArr = []
 var clickArr = [];
 
 var col = document.querySelectorAll('.col');
 col.forEach(function (el) {
+    baseArr.push(el);
     el.addEventListener('click', function () {
-        console.log(!clickArr.includes(el))
+        baseArr.splice(baseArr.indexOf(el), 1);
         if (!clickArr.includes(el)) {
             clickArr.push(el);
             if (flag) {
