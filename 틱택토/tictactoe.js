@@ -53,7 +53,8 @@ col.forEach(function (el) {
 
             // 다 찼을때
             if (checkLine) {
-                alert('X 승리')
+                alert('X 승리');
+                return false;
             }
             setTimeout(function () {
                 var rndIdx = Math.floor(Math.random() * baseArr.length);
@@ -78,7 +79,8 @@ col.forEach(function (el) {
 
                 // 다 찼을때
                 if (checkLine) {
-                    alert('Y 승리')
+                    alert('Y 승리');
+                    return false;
                 }
                 clickArr.push(baseArr[rndIdx]);
                 baseArr.splice(rndIdx, 1);
