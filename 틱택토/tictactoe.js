@@ -13,3 +13,22 @@ for (var i = 0; i < 3; i++) {
 }
 document.body.append(wrap);
 
+var flag = true;
+var clickArr = [];
+
+var col = document.querySelectorAll('.col');
+col.forEach(function (el) {
+    el.addEventListener('click', function () {
+        console.log(!clickArr.includes(el))
+        if (!clickArr.includes(el)) {
+            clickArr.push(el);
+            if (flag) {
+                el.textContent = 'X';
+                flag = false;
+            } else {
+                el.textContent = 'O';
+                flag = true;
+            }
+        }
+    })
+})

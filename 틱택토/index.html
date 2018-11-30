@@ -7,15 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>틱택토</title>
     <style>
-        .row-item {
-            font-size: 0;
+        .row-item {}
+
+        .row-item:after {
+            display: block;
+            content: "";
+            clear: both;
         }
 
         .col {
-            display: inline-block;
+            float: left;
+            display: block;
             width: 50px;
             height: 50px;
+            line-height: 46px;
             border: 1px solid #000;
+            text-align: center;
+            font-size: 40px;
         }
 
         /*
@@ -24,7 +32,7 @@
             칸이 채워져있는가? 없다면 채움, 있다면 다른곳 클릭
             칸에 X,Y를 채움
             세줄이 되었나? 되었다면 X턴,Y턴 승리, 그렇지않다면 Y턴으로 넘어감
-            다시 칸을 클릭.. Y칸이 채워졌나? 그렇지않다면 채움 있다면 다른곳 클릭...반복
+            다시 칸을 클릭.. Y칸이 채워졌나? 그렇지않다면 채움 있다면 다른곳 클릭...(반복)
         */
     </style>
 </head>
