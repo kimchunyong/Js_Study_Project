@@ -43,6 +43,10 @@ col.forEach(function (el) {
                 setTimeout(function () {
                     var rndIdx = Math.floor(Math.random() * baseArr.length);
                     baseArr[rndIdx].textContent = 'O';
+                    var whatRow = rows.indexOf(baseArr[rndIdx].parentNode);
+                    console.log("몇줄", whatRow);
+                    var whatCol = cols[whatRow].indexOf(baseArr[rndIdx]);
+                    console.log('몇칸', whatCol);
                     baseArr.splice(rndIdx, 1);
                     flag = true;
                 }, 100)
