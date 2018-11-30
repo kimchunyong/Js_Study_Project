@@ -27,10 +27,15 @@ col.forEach(function (el) {
             if (flag) {
                 el.textContent = 'X';
                 flag = false;
-            } else {
-                el.textContent = 'O';
-                flag = true;
+                setTimeout(function () {
+                    var rndIdx = Math.floor(Math.random() * baseArr.length);
+                    baseArr[rndIdx].textContent = 'O';
+                    baseArr.splice(rndIdx, 1);
+                    flag = true;
+                }, 500)
             }
         }
     })
 })
+
+
