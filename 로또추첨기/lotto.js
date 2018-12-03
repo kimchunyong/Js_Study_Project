@@ -13,5 +13,7 @@ while (lottoNum.length > 0) {
 }
 
 var bonus = shuffle[shuffle.length - 1];
-var resultNum = shuffle.slice(0, 6);
+var resultNum = shuffle.slice(0, 6).sort(function (a, b) {
+    return a - b;
+})
 
