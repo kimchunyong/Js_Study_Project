@@ -30,9 +30,15 @@ for (var i = 0; i < result.length; i++) {
             circle.style.width = "30px";
             circle.style.height = "30px";
             circle.style.lineHeight = "30px";
+            circle.style.margin = "10px 0";
             circle.style.textAlign = "center";
             circle.style.border = "1px solid #000";
             circle.style.borderRadius = "50%";
+            if (i === result.length - 1) {
+                var bonusTxt = document.createElement('div');
+                bonusTxt.textContent = "보너스"
+                resultWrap.append(bonusTxt);
+            }
             resultWrap.append(circle);
         }, current * 1000)
     })(i)
