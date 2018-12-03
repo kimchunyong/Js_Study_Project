@@ -27,15 +27,16 @@ for (var i = 0; i < result.length; i++) {
         setTimeout(function () {
             var circle = document.createElement('div');
             circle.textContent = result[i];
+            circle.style.display = "inline-block";
             circle.style.width = "30px";
             circle.style.height = "30px";
             circle.style.lineHeight = "30px";
-            circle.style.margin = "10px 0";
+            circle.style.margin = "10px 0 10px 10px";
             circle.style.textAlign = "center";
             circle.style.border = "1px solid #000";
             circle.style.borderRadius = "50%";
             if (i === result.length - 1) {
-                var bonusTxt = document.createElement('div');
+                var bonusTxt = document.createElement('p');
                 bonusTxt.textContent = "보너스"
                 resultWrap.append(bonusTxt);
             }
