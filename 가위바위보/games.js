@@ -18,11 +18,10 @@ var flag = false;
 btns.forEach(function (btn) {
     btn.addEventListener('click', function (e) {
         if (!flag) {
-            var btn = e.target.textContent;
+            var btnTxt = e.target.textContent;
             var stopCmpTxt;
             var userTxt
             clearInterval(computerImg);
-            console.log(btn)
             if (left === 0) {
                 stopCmpTxt = "바위"
             } else if (left === -142) {
@@ -30,8 +29,39 @@ btns.forEach(function (btn) {
             } else {
                 stopCmpTxt = "보"
             }
+
+            if (stopCmpTxt === btnTxt) {
+                alert('무승부 입니다.')
+            } else {
+                if (btnTxt == '바위' && stopCmpTxt == '가위') {
+                    alert('축하합니다. 유저 승리!!');
+                } else if (btnTxt == '바위' && stopCmpTxt == '보') {
+                    alert('아쉽습니다. 컴퓨터 승리!!')
+                } else if (btnTxt == '가위' && stopCmpTxt == '보') {
+                    alert('축하합니다. 유저 승리!!');
+                } else if (btnTxt == '가위' && stopCmpTxt == '바위') {
+                    alert('아쉽습니다. 컴퓨터 승리!!');
+                } else if (btnTxt == '보' && stopCmpTxt == '바위') {
+                    alert('축하합니다. 유저 승리!!');
+                } else if (btnTxt == '보' && stopCmpTxt == '가위') {
+                    alert('아쉽습니다. 컴퓨터 승리!!');
+                }
+            }
             flag = true;
         }
     })
-
 })
+
+setTimeout(function () {
+    setInterval(function () {
+        if (left === 0) {
+            left = -142;
+        } else if (left === -142) {
+            left = -284;
+        } else {
+            left = 0;
+        }
+        computer.style.backgroundPosition = (left + 'px') + ' 0';
+    }, 300)
+    flag = false;
+}, 1500)
