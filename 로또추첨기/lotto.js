@@ -38,7 +38,7 @@ for (var i = 0; i < result.length; i++) {
                 bonusTxt.textContent = "보너스"
                 resultWrap.append(bonusTxt);
             }
-            var bgNum = Number(circle.textContent);
+            var bgNum = result[i];
             if (bgNum <= 10) {
                 bgColor = 'rgb(244, 67, 54)';
             } else if (bgNum <= 20) {
