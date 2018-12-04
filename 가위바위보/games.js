@@ -62,6 +62,6 @@ setTimeout(function () {
             left = 0;
         }
         computer.style.backgroundPosition = (left + 'px') + ' 0';
+        flag = false;
     }, 300)
-    flag = false;
 }, 1500)
