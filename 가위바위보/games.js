@@ -9,7 +9,7 @@ var computerImg = setInterval(function () {
         left = 0;
     }
     computer.style.backgroundPosition = (left + 'px') + ' 0';
-}, 300)
+}, 100)
 
 /*버튼을 눌렀을때 멈춰있는  position의 값을 뽑아서 가위,바위,보 인지 구분후 누가 이겼는지 결정*/
 
@@ -63,5 +63,5 @@ setTimeout(function () {
         }
         computer.style.backgroundPosition = (left + 'px') + ' 0';
         flag = false;
-    }, 300)
+    }, 100)
 }, 1500)

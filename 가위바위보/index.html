@@ -10,13 +10,49 @@
         .computer {
             width: 160px;
             height: 160px;
+            margin-bottom: 50px;
             background: url("https://sites.google.com/site/hafsrsp/_/rsrc/1468855017636/config/customLogo.gif?revision=2") 5px 0 no-repeat;
+        }
+
+        button {
+            background: none;
+            border: 1px solid #d9d9d9;
+            cursor: pointer;
+            text-indent: -9999px;
+            font-size: 0;
+        }
+
+        .scissor {
+            width: 160px;
+            height: 160px;
+            margin-bottom: 50px;
+            background: url("https://sites.google.com/site/hafsrsp/_/rsrc/1468855017636/config/customLogo.gif?revision=2") -130px 0 no-repeat;
+        }
+
+        .rock {
+            width: 160px;
+            height: 160px;
+            margin-bottom: 50px;
+            background: url("https://sites.google.com/site/hafsrsp/_/rsrc/1468855017636/config/customLogo.gif?revision=2") 5px 0 no-repeat;
+        }
+
+        .paper {
+            width: 160px;
+            height: 160px;
+            margin-bottom: 50px;
+            background: url("https://sites.google.com/site/hafsrsp/_/rsrc/1468855017636/config/customLogo.gif?revision=2") -284px 0 no-repeat;
+        }
+
+        .active {
+            border: 2px solid #ff9800;
         }
     </style>
 </head>
 
 <body>
+    <p>컴퓨터</p>
     <div class="computer"></div>
+    <p>유저</p>
     <div>
         <button class="scissor">가위</button>
         <button class="rock">바위</button>
