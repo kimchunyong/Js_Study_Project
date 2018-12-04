@@ -38,6 +38,21 @@ for (var i = 0; i < result.length; i++) {
                 bonusTxt.textContent = "보너스"
                 resultWrap.append(bonusTxt);
             }
+            var bgNum = Number(circle.textContent);
+            if (bgNum <= 10) {
+                bgColor = 'rgb(244, 67, 54)';
+            } else if (bgNum <= 20) {
+                bgColor = 'rgb(255, 152, 0)';
+            } else if (bgNum <= 30) {
+                bgColor = 'rgb(255, 235, 59)';
+            } else if (bgNum <= 40) {
+                bgColor = 'rgb(3, 169, 244)'
+            } else {
+                bgColor = 'rgb(76, 175, 80)';
+            }
+            circle.style.backgroundColor = bgColor;
+            circle.style.fontWeight = 900;
+
             resultWrap.append(circle);
         }, current * 1000)
     })(i)
