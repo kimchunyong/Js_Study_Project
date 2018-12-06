@@ -1,6 +1,7 @@
 var tbody = document.querySelector('#table tbody');
 var dataset = [];
 document.querySelector('#exec').addEventListener('click', function () {
+    tbody.innerHTML = '';
     var hor = parseInt(document.querySelector('#hor').value);
     var ver = parseInt(document.querySelector('#ver').value);
     var mine = parseInt(document.querySelector('#mine').value);
@@ -35,7 +36,7 @@ document.querySelector('#exec').addEventListener('click', function () {
         var col = Math.floor(shuffle[k] / 10); //세로
         var row = shuffle[k] % 10; //가로
         tbody.children[col].children[row].textContent = "X";
-        dataset[col][row] = "x";
+        dataset[col][row] = "X";
     }
 });
 
@@ -47,8 +48,23 @@ tbody.addEventListener('contextmenu', function (e) {
         var parentTbody = e.target.parentNode.parentElement; //tbody
         var targetCol = Array.prototype.indexOf.call(parentTr.children, targetTd); //현재 클릭한 td의 세로 칸
         var targetRow = Array.prototype.indexOf.call(parentTbody.children, parentTr); //현재 클릭한 tr의 가로 칸
-        targetTd.textContent = '!'; //깃발
-        dataset[targetRow][targetCol] = '!';
+
+        if (targetTd.textContent === '' || targetTd.textContent === 'X') {
+            targetTd.textContent = '!';
+        } else if (targetTd.textContent === '!') {
+            targetTd.textContent = '?';
+        } else if (targetTd.textContent === '?') {
+            console.log(2222)
+            if (dataset[targetRow][targetCol] === 1) {
+                targetTd.textContent = '';
+            } else if (dataset[targetRow][targetCol] === 'X') {
+                targetTd.textContent = 'X';
+            };
+        }
+        console.log("dataTxt" + dataset[targetRow][targetCol])
+        console.log(targetTd)
+        console.log(dataset)
+
     }
 })
 
