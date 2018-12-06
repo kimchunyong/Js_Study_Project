@@ -1,3 +1,5 @@
+var tbody = document.querySelector('#table tbody');
+var dataset = [];
 document.querySelector('#exec').addEventListener('click', function () {
     var hor = parseInt(document.querySelector('#hor').value);
     var ver = parseInt(document.querySelector('#ver').value);
@@ -16,8 +18,6 @@ document.querySelector('#exec').addEventListener('click', function () {
     }
 
     //지뢰 테이블 그리기
-    var dataset = [];
-    var tbody = document.querySelector('#table tbody');
     for (var i = 0; i < ver; i++) {
         var arr = [];
         dataset.push(arr);
@@ -37,7 +37,19 @@ document.querySelector('#exec').addEventListener('click', function () {
         tbody.children[col].children[row].textContent = "X";
         dataset[col][row] = "x";
     }
-    console.log(dataset)
+});
 
+tbody.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+    if (e.target.tagName === 'TD') {
+        var targetTd = e.target; //현재 클릭 td
+        var parentTr = e.target.parentNode; //현재 클릭한 td의 부모 tr
+        var parentTbody = e.target.parentNode.parentElement; //tbody
+        var targetCol = Array.prototype.indexOf.call(parentTr.children, targetTd); //현재 클릭한 td의 세로 칸
+        var targetRow = Array.prototype.indexOf.call(parentTbody.children, parentTr); //현재 클릭한 tr의 가로 칸
+        targetTd.textContent = '!'; //깃발
+        dataset[targetRow][targetCol] = '!';
+    }
 })
+
 
