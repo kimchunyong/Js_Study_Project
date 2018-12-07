@@ -1,4 +1,5 @@
 var tbody = document.querySelector('#table tbody');
+
 var dataset = [];
 document.querySelector('#exec').addEventListener('click', function () {
     tbody.innerHTML = '';
@@ -54,18 +55,55 @@ tbody.addEventListener('contextmenu', function (e) {
         } else if (targetTd.textContent === '!') {
             targetTd.textContent = '?';
         } else if (targetTd.textContent === '?') {
-            console.log(2222)
             if (dataset[targetRow][targetCol] === 1) {
                 targetTd.textContent = '';
             } else if (dataset[targetRow][targetCol] === 'X') {
                 targetTd.textContent = 'X';
             };
         }
-        console.log("dataTxt" + dataset[targetRow][targetCol])
-        console.log(targetTd)
-        console.log(dataset)
+    }
+});
 
+tbody.addEventListener('click', function (e) {
+    if (e.target.tagName === 'TD') {
+        e.preventDefault();
+        //클릭시 주변 지뢰 개수
+        var targetTd = e.target; //현재 클릭 td
+        var parentTr = e.target.parentNode; //현재 클릭한 td의 부모 tr
+        var parentTbody = e.target.parentNode.parentElement; //tbody
+        var targetCol = Array.prototype.indexOf.call(parentTr.children, targetTd); //현재 클릭한 td의 세로 칸
+        var targetRow = Array.prototype.indexOf.call(parentTbody.children, parentTr); //현재 클릭한 tr의 가로 칸
+
+        if (dataset[targetRow][targetCol] === 'X') {
+            console.log('game over!!')
+        } else if (dataset[targetRow][targetCol] !== 'X') {
+            //console.log(dataset[targetRow][targetCol]);
+            //console.log(targetRow, targetCol);
+            //console.log(dataset);
+            /*
+                현재 클릭한 배열에서 Row줄의 -1 을 기준으로 3개 탐색, Col줄의 -1을 한뒤 3번 탐색해서 주변의 모든 것들을 탐색한뒤
+                boomCount로 갯수를 새고 현재 클릭한 칸에다 폭탄이랑 근접한 갯수를 적어준다.
+            */
+            var boomCount = 0;
+            for (var i = targetRow - 1; i < targetRow + 2; i++) {
+                if (i < 0) {
+                    continue;
+                }
+                for (var j = targetCol - 1; j < targetCol + 2; j++) {
+                    console.log(i, j)
+                    if (i < 0) {
+                        continue;
+                    }
+                    if (dataset[i][j] === "X") {
+                        boomCount++;
+                    }
+                }
+            }
+            targetTd.textContent = boomCount;
+            console.log(boomCount)
+        }
     }
 })
+
 
 
