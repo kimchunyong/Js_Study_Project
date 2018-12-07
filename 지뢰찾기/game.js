@@ -1,6 +1,7 @@
 var tbody = document.querySelector('#table tbody');
-
 var dataset = [];
+
+//초기화 함수
 function init() {
     tbody.innerHTML = '';
     dataset = []
@@ -40,11 +41,8 @@ function init() {
         tbody.children[col].children[row].textContent = "X";
         dataset[col][row] = "X";
     }
-    console.log(dataset)
 }
-document.querySelector('#exec').addEventListener('click', function () {
-    init();
-})
+document.querySelector('#exec').addEventListener('click', init)
 
 
 tbody.addEventListener('contextmenu', function (e) {
