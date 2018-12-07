@@ -56,9 +56,9 @@ tbody.addEventListener('contextmenu', function (e) {
 
         if (targetTd.textContent === '' || targetTd.textContent === 'X') {
             targetTd.textContent = '!';
-        } else if (targetTd.textContent === '!') {
+        } else if (targetTd.textContent === '!') { //깃발
             targetTd.textContent = '?';
-        } else if (targetTd.textContent === '?') {
+        } else if (targetTd.textContent === '?') { //물음표
             if (dataset[targetRow][targetCol] === 1) {
                 targetTd.textContent = '';
             } else if (dataset[targetRow][targetCol] === 'X') {
@@ -86,22 +86,27 @@ tbody.addEventListener('click', function (e) {
                 현재 클릭한 배열에서 Row줄의 -1 을 기준으로 3개 탐색, Col줄의 -1을 한뒤 3번 탐색해서 주변의 모든 것들을 탐색한뒤
                 boomCount로 갯수를 새고 현재 클릭한 칸에다 폭탄이랑 근접한 갯수를 적어준다.
             */
-            var boomCount = 0;
-            for (var i = targetRow - 1; i < targetRow + 2; i++) {
-                if (i < 0 || i === 10) {
-                    continue;
-                }
-                for (var j = targetCol - 1; j < targetCol + 2; j++) {
-                    if (j < 0) {
+            if (targetTd.textContent === '!' || targetTd.textContent === '?') {
+                return false;
+            } else {
+                var boomCount = 0;
+                for (var i = targetRow - 1; i < targetRow + 2; i++) {
+                    if (i < 0 || i === 10) {
                         continue;
                     }
-                    if (dataset[i][j] === "X") {
-                        boomCount++;
+                    for (var j = targetCol - 1; j < targetCol + 2; j++) {
+                        if (j < 0) {
+                            continue;
+                        }
+                        if (dataset[i][j] === "X") {
+                            boomCount++;
+                        }
                     }
                 }
+                targetTd.textContent = boomCount;
             }
-            targetTd.textContent = boomCount;
         }
+
     }
 })
 
