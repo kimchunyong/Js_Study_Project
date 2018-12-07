@@ -1,8 +1,9 @@
 var tbody = document.querySelector('#table tbody');
 
 var dataset = [];
-document.querySelector('#exec').addEventListener('click', function () {
+function init() {
     tbody.innerHTML = '';
+    dataset = []
     var hor = parseInt(document.querySelector('#hor').value);
     var ver = parseInt(document.querySelector('#ver').value);
     var mine = parseInt(document.querySelector('#mine').value);
@@ -39,7 +40,12 @@ document.querySelector('#exec').addEventListener('click', function () {
         tbody.children[col].children[row].textContent = "X";
         dataset[col][row] = "X";
     }
-});
+    console.log(dataset)
+}
+document.querySelector('#exec').addEventListener('click', function () {
+    init();
+})
+
 
 tbody.addEventListener('contextmenu', function (e) {
     e.preventDefault();
@@ -75,23 +81,20 @@ tbody.addEventListener('click', function (e) {
         var targetRow = Array.prototype.indexOf.call(parentTbody.children, parentTr); //현재 클릭한 tr의 가로 칸
 
         if (dataset[targetRow][targetCol] === 'X') {
-            console.log('game over!!')
+            alert('Game Over!!');
+            init();
         } else if (dataset[targetRow][targetCol] !== 'X') {
-            //console.log(dataset[targetRow][targetCol]);
-            //console.log(targetRow, targetCol);
-            //console.log(dataset);
             /*
                 현재 클릭한 배열에서 Row줄의 -1 을 기준으로 3개 탐색, Col줄의 -1을 한뒤 3번 탐색해서 주변의 모든 것들을 탐색한뒤
                 boomCount로 갯수를 새고 현재 클릭한 칸에다 폭탄이랑 근접한 갯수를 적어준다.
             */
             var boomCount = 0;
             for (var i = targetRow - 1; i < targetRow + 2; i++) {
-                if (i < 0) {
+                if (i < 0 || i === 10) {
                     continue;
                 }
                 for (var j = targetCol - 1; j < targetCol + 2; j++) {
-                    console.log(i, j)
-                    if (i < 0) {
+                    if (j < 0) {
                         continue;
                     }
                     if (dataset[i][j] === "X") {
@@ -100,7 +103,6 @@ tbody.addEventListener('click', function (e) {
                 }
             }
             targetTd.textContent = boomCount;
-            console.log(boomCount)
         }
     }
 })
