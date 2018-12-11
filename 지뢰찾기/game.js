@@ -109,7 +109,6 @@ tbody.addEventListener('click', function (e) {
                 targetTd.textContent = boomCount;
                 if (boomCount === 0) { //폭탄 갯수가 0일때
                     //0이 많아질수록 속도 느려지는 현상 발생.어느정도 해소는되었지만 중복해서 클릭됨. 시간나면 알고리즘 배열탐색으로 속도측면 개선하기.
-                    var _counts = 0;
                     clickArea.forEach(item => {
                         if (item && item.classList[0] !== 'opend') {
                             item.click();
