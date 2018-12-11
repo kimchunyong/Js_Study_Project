@@ -107,6 +107,7 @@ tbody.addEventListener('click', function (e) {
                 }
                 targetTd.textContent = boomCount;
                 if (boomCount === 0) { //폭탄 갯수가 0일때
+                    //0이 많아질수록 속도 느려지는 현상 발생.
                     clickArea.forEach(item => {
                         item.click();
                     })
