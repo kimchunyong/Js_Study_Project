@@ -4,7 +4,7 @@ var dataset = [];
 //초기화 함수
 function init() {
     tbody.innerHTML = '';
-    dataset = []
+    dataset = [];
     var hor = parseInt(document.querySelector('#hor').value);
     var ver = parseInt(document.querySelector('#ver').value);
     var mine = parseInt(document.querySelector('#mine').value);
@@ -27,7 +27,7 @@ function init() {
         dataset.push(arr);
         var tr = document.createElement('tr');
         for (var j = 0; j < hor; j++) {
-            arr.push(1)
+            arr.push(0);
             var td = document.createElement('td');
             tr.append(td);
         }
@@ -78,9 +78,9 @@ tbody.addEventListener('click', function (e) {
         var targetCol = Array.prototype.indexOf.call(parentTr.children, targetTd); //현재 클릭한 td의 세로 칸
         var targetRow = Array.prototype.indexOf.call(parentTbody.children, parentTr); //현재 클릭한 tr의 가로 칸
 
+        targetTd.classList.add('opend');
         if (dataset[targetRow][targetCol] === 'X') {
-            alert('Game Over!!');
-            init();
+            targetTd.textContent = '펑';
         } else if (dataset[targetRow][targetCol] !== 'X') {
             /*
                 현재 클릭한 배열에서 Row줄의 -1 을 기준으로 3개 탐색, Col줄의 -1을 한뒤 3번 탐색해서 주변의 모든 것들을 탐색한뒤
@@ -104,11 +104,41 @@ tbody.addEventListener('click', function (e) {
                     }
                 }
                 targetTd.textContent = boomCount;
+                if (boomCount === 0) {
+                    var clickArea = [];
+                    if (tbody.children[targetCol - 1]) {
+                        clickArea = clickArea.concat([
+                            tbody.children[targetRow - 1].children[targetCol - 1],
+                            tbody.children[targetRow - 1].children[targetCol],
+                            tbody.children[targetRow - 1].children[targetCol + 1],
+                        ])
+                    };
+                    clickArea = clickArea.concat([
+                        tbody.children[targetRow].children[targetCol - 1],
+                        tbody.children[targetRow].children[targetCol + 1],
+                    ]);
+                    if (tbody.children[targetCol + 1]) {
+                        clickArea = clickArea.concat([
+                            tbody.children[targetRow + 1].children[targetCol - 1],
+                            tbody.children[targetRow + 1].children[targetCol],
+                            tbody.children[targetRow + 1].children[targetCol + 1],
+                        ])
+                    };
+                    console.log(clickArea)
+                    clickArea.filter(function (v) {
+                        return !!v;
+                    }).forEach(function (colum) {
+                        colum.click();
+                    })
+
+                }
             }
         }
 
     }
 })
+
+
 
 
 
