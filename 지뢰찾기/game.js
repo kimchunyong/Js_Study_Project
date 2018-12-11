@@ -79,6 +79,7 @@ tbody.addEventListener('click', function (e) {
         var targetRow = Array.prototype.indexOf.call(parentTbody.children, parentTr); //현재 클릭한 tr의 가로 칸
 
         targetTd.classList.add('opend');
+        dataset[targetRow][targetCol] = 1;
         if (dataset[targetRow][targetCol] === 'X') {
             targetTd.textContent = '펑';
         } else if (dataset[targetRow][targetCol] !== 'X') {
@@ -109,7 +110,10 @@ tbody.addEventListener('click', function (e) {
                 if (boomCount === 0) { //폭탄 갯수가 0일때
                     //0이 많아질수록 속도 느려지는 현상 발생.
                     clickArea.forEach(item => {
-                        item.click();
+                        if (item && item.classList[0] !== 'opend') {
+                            item.click();
+                        }
+
                     })
                     clickArea = [];
                 }
