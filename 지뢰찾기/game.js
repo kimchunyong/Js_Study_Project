@@ -89,6 +89,7 @@ tbody.addEventListener('click', function (e) {
             if (targetTd.textContent === '!' || targetTd.textContent === '?') {
                 return false;
             } else {
+                var clickArea = [];
                 var boomCount = 0;
                 for (var i = targetRow - 1; i < targetRow + 2; i++) {
                     if (i < 0 || i === 10) {
@@ -101,36 +102,15 @@ tbody.addEventListener('click', function (e) {
                         if (dataset[i][j] === "X") {
                             boomCount++;
                         }
+                        clickArea.push(tbody.children[i].children[j]);
                     }
                 }
                 targetTd.textContent = boomCount;
-                if (boomCount === 0) {
-                    var clickArea = [];
-                    if (tbody.children[targetCol - 1]) {
-                        clickArea = clickArea.concat([
-                            tbody.children[targetRow - 1].children[targetCol - 1],
-                            tbody.children[targetRow - 1].children[targetCol],
-                            tbody.children[targetRow - 1].children[targetCol + 1],
-                        ])
-                    };
-                    clickArea = clickArea.concat([
-                        tbody.children[targetRow].children[targetCol - 1],
-                        tbody.children[targetRow].children[targetCol + 1],
-                    ]);
-                    if (tbody.children[targetCol + 1]) {
-                        clickArea = clickArea.concat([
-                            tbody.children[targetRow + 1].children[targetCol - 1],
-                            tbody.children[targetRow + 1].children[targetCol],
-                            tbody.children[targetRow + 1].children[targetCol + 1],
-                        ])
-                    };
-                    console.log(clickArea)
-                    clickArea.filter(function (v) {
-                        return !!v;
-                    }).forEach(function (colum) {
-                        colum.click();
+                if (boomCount === 0) { //폭탄 갯수가 0일때
+                    clickArea.forEach(item => {
+                        item.click();
                     })
-
+                    clickArea = [];
                 }
             }
         }
