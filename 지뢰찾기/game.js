@@ -16,7 +16,7 @@ function init() {
             return idx;
         });
     var shuffle = [];
-    while (boom.length > 80) {
+    while (boom.length > ((hor * ver) - mine)) {
         var result = boom.splice(Math.floor(Math.random() * boom.length), 1)[0];
         shuffle.push(result);
     }
@@ -34,10 +34,14 @@ function init() {
         tbody.append(tr);
     }
 
+    console.log(shuffle)
     //지뢰 심기
     for (var k = 0; k < shuffle.length; k++) {
+        console.log(shuffle[k])
         var col = Math.floor(shuffle[k] / 10); //세로
         var row = shuffle[k] % 10; //가로
+        console.log("col:" + col)
+        console.log("row:" + row)
         tbody.children[col].children[row].textContent = "X";
         dataset[col][row] = "X";
     }
