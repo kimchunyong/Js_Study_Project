@@ -78,9 +78,13 @@ tbody.addEventListener('click', function (e) {
         var targetCol = Array.prototype.indexOf.call(parentTr.children, targetTd); //현재 클릭한 td의 세로 칸
         var targetRow = Array.prototype.indexOf.call(parentTbody.children, parentTr); //현재 클릭한 tr의 가로 칸
 
-        targetTd.classList.add('opend');
+        if (targetTd.textContent !== '!' && targetTd.textContent !== '?') {
+            targetTd.classList.add('opend');
+        }
+
         if (dataset[targetRow][targetCol] === 'X') {
             targetTd.textContent = '펑';
+            alert('game over!');
         } else if (dataset[targetRow][targetCol] !== 'X') {
             /*
                 현재 클릭한 배열에서 Row줄의 -1 을 기준으로 3개 탐색, Col줄의 -1을 한뒤 3번 탐색해서 주변의 모든 것들을 탐색한뒤
@@ -109,11 +113,17 @@ tbody.addEventListener('click', function (e) {
                 targetTd.textContent = boomCount;
                 if (boomCount === 0) { //폭탄 갯수가 0일때
                     //0이 많아질수록 속도 느려지는 현상 발생.어느정도 해소는되었지만 중복해서 클릭됨. 시간나면 알고리즘 배열탐색으로 속도측면 개선하기.
-                    clickArea.forEach(item => {
-                        if (item && item.classList[0] !== 'opend') {
-                            item.click();
-                        }
-                    })
+                    clickArea
+                        .filter(function (n) {
+                            if (n) {
+                                return 1;
+                            }
+                        })
+                        .forEach(item => {
+                            if (item && item.classList[0] !== 'opend') {
+                                item.click();
+                            }
+                        })
                     clickArea = [];
                 }
             }
