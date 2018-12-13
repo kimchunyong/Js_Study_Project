@@ -1,14 +1,16 @@
 var tbody = document.querySelector('#table tbody');
 var dataset = [];
+var midFlag = false;
 
 //초기화 함수
 function init() {
     tbody.innerHTML = '';
+    midFlag = false;
     dataset = [];
     var hor = parseInt(document.querySelector('#hor').value);
     var ver = parseInt(document.querySelector('#ver').value);
     var mine = parseInt(document.querySelector('#mine').value);
-
+    document.querySelector('#result').textContent = '';
     //지뢰 위치 뽑기
     var boom = Array(hor * ver)
         .fill()
@@ -37,7 +39,6 @@ function init() {
     console.log(shuffle)
     //지뢰 심기
     for (var k = 0; k < shuffle.length; k++) {
-        console.log(shuffle[k])
         var col = Math.floor(shuffle[k] / 10); //세로
         var row = shuffle[k] % 10; //가로
         console.log("col:" + col)
@@ -51,6 +52,9 @@ document.querySelector('#exec').addEventListener('click', init)
 
 tbody.addEventListener('contextmenu', function (e) {
     e.preventDefault();
+    if (midFlag) {
+        return;
+    }
     if (e.target.tagName === 'TD') {
         var targetTd = e.target; //현재 클릭 td
         var parentTr = e.target.parentNode; //현재 클릭한 td의 부모 tr
@@ -73,6 +77,9 @@ tbody.addEventListener('contextmenu', function (e) {
 });
 
 tbody.addEventListener('click', function (e) {
+    if (midFlag) {
+        return;
+    }
     if (e.target.tagName === 'TD') {
         e.preventDefault();
         //클릭시 주변 지뢰 개수
@@ -88,7 +95,8 @@ tbody.addEventListener('click', function (e) {
 
         if (dataset[targetRow][targetCol] === 'X') {
             targetTd.textContent = '펑';
-            alert('game over!');
+            document.querySelector('#result').textContent = '실패 ㅠ';
+            midFlag = true;
         } else if (dataset[targetRow][targetCol] !== 'X') {
             /*
                 현재 클릭한 배열에서 Row줄의 -1 을 기준으로 3개 탐색, Col줄의 -1을 한뒤 3번 탐색해서 주변의 모든 것들을 탐색한뒤
@@ -114,7 +122,7 @@ tbody.addEventListener('click', function (e) {
                         clickArea.push(tbody.children[i].children[j]);
                     }
                 }
-                targetTd.textContent = boomCount;
+                targetTd.textContent = boomCount || '';
                 if (boomCount === 0) { //폭탄 갯수가 0일때
                     //0이 많아질수록 속도 느려지는 현상 발생.어느정도 해소는되었지만 중복해서 클릭됨. 시간나면 알고리즘 배열탐색으로 속도측면 개선하기.
                     clickArea
