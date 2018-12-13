@@ -110,7 +110,7 @@ tbody.addEventListener('click', function (e) {
             }
         }
 
-        if (dataset[targetRow][targetCol] === 'X') {
+        if (dataset[targetRow][targetCol] === 'X' && targetTd.textContent !== '!' && targetTd.textContent !== '?') {
             targetTd.textContent = '펑';
             document.querySelector('#result').textContent = '실패 ㅠ';
             midFlag = true;
