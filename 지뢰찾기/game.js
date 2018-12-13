@@ -1,15 +1,27 @@
 var tbody = document.querySelector('#table tbody');
 var dataset = [];
 var midFlag = false;
+var sucess = 0;
+var hor = parseInt(document.querySelector('#hor').value);
+var ver = parseInt(document.querySelector('#ver').value);
+var mine = parseInt(document.querySelector('#mine').value);
+
+
+function timer() {
+    var count = 0;
+    var time = setInterval(function () {
+        count++;
+    }, 1000);
+}
+
+
 
 //초기화 함수
 function init() {
     tbody.innerHTML = '';
-    midFlag = false;
     dataset = [];
-    var hor = parseInt(document.querySelector('#hor').value);
-    var ver = parseInt(document.querySelector('#ver').value);
-    var mine = parseInt(document.querySelector('#mine').value);
+    midFlag = false;
+    sucess = 0;
     document.querySelector('#result').textContent = '';
     //지뢰 위치 뽑기
     var boom = Array(hor * ver)
@@ -41,13 +53,13 @@ function init() {
     for (var k = 0; k < shuffle.length; k++) {
         var col = Math.floor(shuffle[k] / 10); //세로
         var row = shuffle[k] % 10; //가로
-        console.log("col:" + col)
-        console.log("row:" + row)
+        //console.log("col:" + col)
+        //console.log("row:" + row)
         tbody.children[col].children[row].textContent = "X";
         dataset[col][row] = "X";
     }
 }
-document.querySelector('#exec').addEventListener('click', init)
+document.querySelector('#exec').addEventListener('click', init);
 
 
 tbody.addEventListener('contextmenu', function (e) {
@@ -89,8 +101,13 @@ tbody.addEventListener('click', function (e) {
         var targetCol = Array.prototype.indexOf.call(parentTr.children, targetTd); //현재 클릭한 td의 세로 칸
         var targetRow = Array.prototype.indexOf.call(parentTbody.children, parentTr); //현재 클릭한 tr의 가로 칸
 
-        if (targetTd.textContent !== '!' && targetTd.textContent !== '?') {
+        if (targetTd.textContent !== '!' && targetTd.textContent !== '?' && targetTd.classList[0] !== 'opend') {
             targetTd.classList.add('opend');
+            sucess += 1;
+            if (sucess === hor * ver - mine) {
+                midFlag = true;
+                document.querySelector('#result').textContent = '승리';
+            }
         }
 
         if (dataset[targetRow][targetCol] === 'X') {
