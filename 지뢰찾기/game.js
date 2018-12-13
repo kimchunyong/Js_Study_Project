@@ -6,16 +6,6 @@ var hor = parseInt(document.querySelector('#hor').value);
 var ver = parseInt(document.querySelector('#ver').value);
 var mine = parseInt(document.querySelector('#mine').value);
 
-
-function timer() {
-    var count = 0;
-    var time = setInterval(function () {
-        count++;
-    }, 1000);
-}
-
-
-
 //초기화 함수
 function init() {
     tbody.innerHTML = '';
@@ -48,7 +38,7 @@ function init() {
         tbody.append(tr);
     }
 
-    console.log(shuffle)
+    //console.log(shuffle)
     //지뢰 심기
     for (var k = 0; k < shuffle.length; k++) {
         var col = Math.floor(shuffle[k] / 10); //세로
