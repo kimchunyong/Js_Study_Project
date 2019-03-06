@@ -6,7 +6,14 @@
     font-style: normal;
 }
 
+html,
 body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
     font-size: 10px;
     background-color: #d9c3fc;
 }
@@ -15,8 +22,8 @@ a {
     text-decoration: none;
 }
 
-.inner_wrap {
-    margin: 0 auto;
+.main-header {
+    flex: 0 1 auto;
 }
 
 .logo-text {
@@ -26,6 +33,10 @@ a {
     text-align: center;
     font-family: lakeshore;
     font-size: 26px;
+}
+
+.main-content {
+    flex: 1 1 auto;
 }
 
 .thumbnail-list {
