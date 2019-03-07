@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex연습</title>
+    <style>
+        .container_1 {
+            display: flex;
+            width: 100%;
+            height: 200px;
+            margin-top: 50px;
+            background-color: blue;
+        }
+        
+        .container_1 .item {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: red;
+        }
+        
+        .container_2 {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 200px;
+            margin-top: 50px;
+            background-color: blue;
+        }
+        
+        .container_2 .item {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: red;
+        }
+        
+        .container_3 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+            height: 200px;
+            margin-top: 50px;
+            background-color: blue;
+        }
+        
+        .container_3 .item {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: red;
+        }
+        
+        .container_4 {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            width: 100%;
+            height: 200px;
+            margin-top: 50px;
+            background-color: blue;
+        }
+        
+        .container_4 .item {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: red;
+        }
+        
+        .container_5 {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            width: 100%;
+            height: 200px;
+            margin-top: 50px;
+            background-color: blue;
+        }
+        
+        .container_5 .item {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: red;
+        }
+        
+        .container_6 {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 200px;
+            margin-top: 50px;
+            background-color: blue;
+        }
+        
+        .container_6 .item {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container_1">
+        <div class="item item_1"></div>
+        <div class="item item_2"></div>
+        <div class="item item_3"></div>
+    </div>
+    <div class="container_2">
+        <div class="item item_1"></div>
+        <div class="item item_2"></div>
+        <div class="item item_3"></div>
+    </div>
+    <div class="container_3">
+        <div class="item item_1"></div>
+        <div class="item item_2"></div>
+        <div class="item item_3"></div>
+    </div>
+    <div class="container_4">
+        <div class="item item_1"></div>
+        <div class="item item_2"></div>
+        <div class="item item_3"></div>
+    </div>
+    <div class="container_5">
+        <div class="item item_1"></div>
+        <div class="item item_2"></div>
+        <div class="item item_3"></div>
+    </div>
+    <div class="container_6">
+        <div class="item item_1"></div>
+        <div class="item item_2"></div>
+        <div class="item item_3"></div>
+    </div>
+</body>
+
+</html>
